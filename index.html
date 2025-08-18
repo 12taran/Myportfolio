@@ -1,0 +1,948 @@
+
+<!-- Change this -->
+<a href="https://github.com/yourusername/ecommerce-k8s" target="_blank">
+
+<!-- To this (with your real repo) -->
+<a href="https://github.com/12taran/ecommerce-deployment" target="_blank">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taranpreet Singh Batra - DevOps Engineer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'navy': '#03045e',
+                        'navy-light': '#0d1b2a',
+                        'navy-dark': '#020340'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .fade-in-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        
+        .fade-in-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .fade-in-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        
+        .fade-in-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .scale-in {
+            opacity: 0;
+            transform: scale(0.8);
+            transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        
+        .scale-in.visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+        
+        .slide-up {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        
+        .slide-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .rotate-in {
+            opacity: 0;
+            transform: rotate(-10deg) scale(0.9);
+            transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        
+        .rotate-in.visible {
+            opacity: 1;
+            transform: rotate(0deg) scale(1);
+        }
+        
+        .hover-lift:hover {
+            transform: translateY(-5px);
+            transition: transform 0.3s ease;
+        }
+        
+        .timeline-line {
+            background: linear-gradient(to bottom, #03045e, #0d1b2a);
+        }
+        
+        .skill-icon {
+            transition: all 0.3s ease;
+        }
+        
+        .skill-icon:hover {
+            transform: scale(1.05);
+        }
+        
+        .project-card {
+            border: 2px solid #e5e7eb;
+            transition: all 0.3s ease;
+        }
+        
+        .project-card:hover {
+            border-color: #03045e;
+            box-shadow: 0 10px 25px rgba(3, 4, 94, 0.1);
+        }
+        
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #03045e;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+        
+        .btn-navy {
+            background-color: #03045e;
+            color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-navy:hover {
+            background-color: #020340;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(3, 4, 94, 0.3);
+        }
+        
+        .input-focus:focus {
+            border-color: #03045e;
+            box-shadow: 0 0 0 3px rgba(3, 4, 94, 0.1);
+        }
+        
+        /* Floating Shapes Animation */
+        .floating-shapes {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .shape {
+            position: absolute;
+            background: linear-gradient(45deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
+            border-radius: 50%;
+            animation: float 20s infinite linear;
+        }
+        
+        .shape-1 {
+            width: 80px;
+            height: 80px;
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
+            animation-duration: 25s;
+        }
+        
+        .shape-2 {
+            width: 120px;
+            height: 120px;
+            top: 60%;
+            left: 80%;
+            animation-delay: -5s;
+            animation-duration: 30s;
+        }
+        
+        .shape-3 {
+            width: 60px;
+            height: 60px;
+            top: 80%;
+            left: 20%;
+            animation-delay: -10s;
+            animation-duration: 20s;
+        }
+        
+        .shape-4 {
+            width: 100px;
+            height: 100px;
+            top: 10%;
+            left: 70%;
+            animation-delay: -15s;
+            animation-duration: 35s;
+        }
+        
+        .shape-5 {
+            width: 40px;
+            height: 40px;
+            top: 40%;
+            left: 5%;
+            animation-delay: -20s;
+            animation-duration: 15s;
+        }
+        
+        .shape-6 {
+            width: 90px;
+            height: 90px;
+            top: 70%;
+            left: 60%;
+            animation-delay: -25s;
+            animation-duration: 28s;
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translateY(0px) rotate(0deg);
+                opacity: 0.7;
+            }
+            25% {
+                transform: translateY(-20px) rotate(90deg);
+                opacity: 0.4;
+            }
+            50% {
+                transform: translateY(-40px) rotate(180deg);
+                opacity: 0.7;
+            }
+            75% {
+                transform: translateY(-20px) rotate(270deg);
+                opacity: 0.4;
+            }
+            100% {
+                transform: translateY(0px) rotate(360deg);
+                opacity: 0.7;
+            }
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-800">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-white/95 backdrop-blur-sm z-50 border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <a href="https://www.linkedin.com/in/taranpreet-batra/" target="_blank" class="text-xl font-bold text-navy hover:text-navy-dark transition-colors duration-300">Taranpreet Singh</a>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#about" class="nav-link text-gray-700 hover:text-navy">About</a>
+                    <a href="#projects" class="nav-link text-gray-700 hover:text-navy">Projects</a>
+                    <a href="#experience" class="nav-link text-gray-700 hover:text-navy">Experience</a>
+                    <a href="#blogs" class="nav-link text-gray-700 hover:text-navy">Blogs</a>
+                    <a href="#contact" class="nav-link text-gray-700 hover:text-navy">Contact</a>
+                </div>
+                <div class="md:hidden">
+                    <button class="text-gray-700 hover:text-navy">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="min-h-screen bg-navy text-white flex items-center justify-center relative overflow-hidden">
+        <!-- Animated Background -->
+        <div class="absolute inset-0 opacity-20">
+            <div class="floating-shapes">
+                <div class="shape shape-1"></div>
+                <div class="shape shape-2"></div>
+                <div class="shape shape-3"></div>
+                <div class="shape shape-4"></div>
+                <div class="shape shape-5"></div>
+                <div class="shape shape-6"></div>
+            </div>
+        </div>
+        
+        <!-- Gradient Overlay -->
+        <div class="absolute inset-0 bg-gradient-to-br from-navy via-navy-light to-navy-dark opacity-90"></div>
+        
+        <!-- Content -->
+        <div class="text-center px-4 fade-in relative z-10">
+            <h1 class="text-5xl md:text-7xl font-bold mb-6">
+                Taranpreet Singh Batra
+            </h1>
+            <p class="text-xl md:text-2xl mb-8 text-gray-200 max-w-3xl mx-auto">
+                DevOps Engineer | Cloud Architect | Automation Lover
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <button class="px-8 py-4 bg-white text-navy rounded-lg font-semibold hover:bg-gray-100 transition-all duration-300 hover-lift">
+                    View My Work
+                </button>
+                <button class="px-8 py-4 border-2 border-white rounded-lg font-semibold hover:bg-white hover:text-navy transition-all duration-300 hover-lift">
+                    Contact Me
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 px-4 bg-gray-50">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-12 text-navy fade-in">About Me</h2>
+            <div class="text-center mb-16 fade-in">
+                <p class="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+                    DevOps Engineer with experience in deploying and automating Cloud-based applications to make products reliable, scalable, and secure.
+                </p>
+            </div>
+            
+            <!-- Skills Grid -->
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-11 gap-6 justify-items-center max-w-6xl mx-auto">
+                <div class="skill-icon text-center scale-in" style="animation-delay: 0.1s">
+                    <div class="w-16 h-16 mx-auto mb-3 bg-orange-500 rounded-lg flex items-center justify-center hover:shadow-lg transition-all duration-300">
+                        <i class="fab fa-aws text-2xl text-white"></i>
+                    </div>
+                    <span class="text-sm text-gray-600 font-medium">AWS</span>
+                </div>
+                <div class="skill-icon text-center scale-in" style="animation-delay: 0.15s">
+                    <div class="w-16 h-16 mx-auto mb-3 bg-blue-500 rounded-lg flex items-center justify-center hover:shadow-lg transition-all duration-300">
+                        <i class="fab fa-docker text-2xl text-white"></i>
+                    </div>
+                    <span class="text-sm text-gray-600 font-medium">Docker</span>
+                </div>
+                <div class="skill-icon text-center scale-in" style="animation-delay: 0.2s">
+                    <div class="w-16 h-16 mx-auto mb-3 bg-navy rounded-lg flex items-center justify-center hover:shadow-lg transition-all duration-300">
+                        <i class="fas fa-dharmachakra text-2xl text-white"></i>
+                    </div>
+                    <span class="text-sm text-gray-600 font-medium">Kubernetes</span>
+                </div>
+                <div class="skill-icon text-center scale-in" style="animation-delay: 0.25s">
+                    <div class="w-16 h-16 mx-auto mb-3 bg-red-500 rounded-lg flex items-center justify-center hover:shadow-lg transition-all duration-300">
+                        <i class="fas fa-hammer text-2xl text-white"></i>
+                    </div>
+                    <span class="text-sm text-gray-600 font-medium">Jenkins</span>
+                </div>
+                <div class="skill-icon text-center scale-in" style="animation-delay: 0.3s">
+                    <div class="w-16 h-16 mx-auto mb-3 bg-gray-800 rounded-lg flex items-center justify-center hover:shadow-lg transition-all duration-300">
+                        <i class="fab fa-linux text-2xl text-white"></i>
+                    </div>
+                    <span class="text-sm text-gray-600 font-medium">Linux</span>
+                </div>
+                <div class="skill-icon text-center scale-in" style="animation-delay: 0.35s">
+                    <div class="w-16 h-16 mx-auto mb-3 bg-gray-900 rounded-lg flex items-center justify-center hover:shadow-lg transition-all duration-300">
+                        <i class="fab fa-github text-2xl text-white"></i>
+                    </div>
+                    <span class="text-sm text-gray-600 font-medium">GitHub</span>
+                </div>
+                <div class="skill-icon text-center scale-in" style="animation-delay: 0.4s">
+                    <div class="w-16 h-16 mx-auto mb-3 bg-yellow-500 rounded-lg flex items-center justify-center hover:shadow-lg transition-all duration-300">
+                        <i class="fab fa-python text-2xl text-white"></i>
+                    </div>
+                    <span class="text-sm text-gray-600 font-medium">Python</span>
+                </div>
+                <div class="skill-icon text-center scale-in" style="animation-delay: 0.45s">
+                    <div class="w-16 h-16 mx-auto mb-3 bg-yellow-400 rounded-lg flex items-center justify-center hover:shadow-lg transition-all duration-300">
+                        <i class="fab fa-js-square text-2xl text-white"></i>
+                    </div>
+                    <span class="text-sm text-gray-600 font-medium">JavaScript</span>
+                </div>
+                <div class="skill-icon text-center scale-in" style="animation-delay: 0.5s">
+                    <div class="w-16 h-16 mx-auto mb-3 bg-red-600 rounded-lg flex items-center justify-center hover:shadow-lg transition-all duration-300">
+                        <i class="fas fa-cogs text-2xl text-white"></i>
+                    </div>
+                    <span class="text-sm text-gray-600 font-medium">Ansible</span>
+                </div>
+                <div class="skill-icon text-center scale-in" style="animation-delay: 0.55s">
+                    <div class="w-16 h-16 mx-auto mb-3 bg-purple-600 rounded-lg flex items-center justify-center hover:shadow-lg transition-all duration-300">
+                        <i class="fas fa-code text-2xl text-white"></i>
+                    </div>
+                    <span class="text-sm text-gray-600 font-medium">Terraform</span>
+                </div>
+                <div class="skill-icon text-center scale-in" style="animation-delay: 0.6s">
+                    <div class="w-16 h-16 mx-auto mb-3 bg-blue-600 rounded-lg flex items-center justify-center hover:shadow-lg transition-all duration-300">
+                        <i class="fab fa-google text-2xl text-white"></i>
+                    </div>
+                    <span class="text-sm text-gray-600 font-medium">GCP</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 px-4">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 text-navy fade-in">Projects</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch justify-items-center">
+                <!-- E-commerce Deployment (Kubernetes Strategies) -->
+                <div class="project-card bg-white rounded-xl p-6 hover-lift fade-in-left flex flex-col h-full max-w-sm w-full" style="animation-delay: 0.1s">
+                    <h3 class="text-xl font-bold mb-3 text-navy">E-commerce Deployment (Kubernetes Strategies)</h3>
+                    <p class="text-gray-600 mb-4 flex-grow">Deployed an e-commerce app with Kubernetes strategies: Rollback, Recreate, and Canary (traffic splits 80/20 → 50/50 → 20/80 → 100/0).</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="px-3 py-1 bg-navy text-white rounded-full text-sm">Kubernetes</span>
+                        <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">Docker</span>
+                        <span class="px-3 py-1 bg-orange-100 text-orange-800 rounded-full text-sm">AWS</span>
+                    </div>
+                    <div class="flex gap-3 mt-auto">
+                        <a href="https://sharesampatti.hashnode.dev/kubernetes-deployment-strategy" target="_blank" class="text-navy hover:text-navy-dark transition-colors">
+                            <i class="fas fa-blog mr-1"></i>Blog
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 2048 Game Deployment -->
+                <div class="project-card bg-white rounded-xl p-6 hover-lift fade-in-right flex flex-col h-full max-w-sm w-full" style="animation-delay: 0.2s">
+                    <h3 class="text-xl font-bold mb-3 text-navy">2048 Game Deployment</h3>
+                    <p class="text-gray-600 mb-4 flex-grow">Containerized the classic 2048 game with Docker and hosted it on AWS Elastic Beanstalk for scalable gaming experience.</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">Docker</span>
+                        <span class="px-3 py-1 bg-orange-100 text-orange-800 rounded-full text-sm">AWS Beanstalk</span>
+                    </div>
+                    <div class="flex gap-3 mt-auto">
+                        <a href="https://github.com/12taran/2048-game-.git" target="_blank" class="text-navy hover:text-navy-dark transition-colors">
+                            <i class="fab fa-github mr-1"></i>GitHub
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Microservices: Video to Audio Converter -->
+                <div class="project-card bg-white rounded-xl p-6 hover-lift slide-up flex flex-col h-full max-w-sm w-full" style="animation-delay: 0.3s">
+                    <h3 class="text-xl font-bold mb-3 text-navy">Microservices: Video to Audio Converter</h3>
+                    <p class="text-gray-600 mb-4 flex-grow">Deployed a microservices-based app with scaling and descaling (scaled auth, descaled notification) using Helm on Kubernetes.</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="px-3 py-1 bg-navy text-white rounded-full text-sm">Kubernetes</span>
+                        <span class="px-3 py-1 bg-red-100 text-red-800 rounded-full text-sm">Helm</span>
+                        <span class="px-3 py-1 bg-yellow-100 text-yellow-800 rounded-full text-sm">Python</span>
+                        <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">Docker</span>
+                    </div>
+                    <div class="flex gap-3 mt-auto">
+                        <a href="https://github.com/12taran/microservices-python-app.git" target="_blank" class="text-navy hover:text-navy-dark transition-colors">
+                            <i class="fab fa-github mr-1"></i>GitHub
+                        </a>
+                        <a href="https://sharesampatti.hashnode.dev/deploying-microservices-on-kubernetes-with-helm-lessons-from-the-trenches" target="_blank" class="text-navy hover:text-navy-dark transition-colors">
+                            <i class="fas fa-blog mr-1"></i>Blog
+                        </a>
+                    </div>
+                </div>
+
+                <!-- DevSecOps Pipeline -->
+                <div class="project-card bg-white rounded-xl p-6 hover-lift fade-in-left flex flex-col h-full max-w-sm w-full" style="animation-delay: 0.4s">
+                    <h3 class="text-xl font-bold mb-3 text-navy">DevSecOps Pipeline</h3>
+                    <p class="text-gray-600 mb-4 flex-grow">Built a complete DevSecOps pipeline with CI/CD, Kubernetes deployments on AWS EKS, Helm, and SNS notifications.</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="px-3 py-1 bg-red-100 text-red-800 rounded-full text-sm">Jenkins</span>
+                        <span class="px-3 py-1 bg-navy text-white rounded-full text-sm">Kubernetes</span>
+                        <span class="px-3 py-1 bg-red-100 text-red-800 rounded-full text-sm">Helm</span>
+                        <span class="px-3 py-1 bg-orange-100 text-orange-800 rounded-full text-sm">AWS EKS</span>
+                        <span class="px-3 py-1 bg-yellow-100 text-yellow-800 rounded-full text-sm">SNS</span>
+                    </div>
+                    <div class="flex gap-3 mt-auto">
+                        <span class="text-gray-500 text-sm italic">Work in Progress</span>
+                    </div>
+                </div>
+
+                <!-- Share Sampatti (Real Estate Platform) -->
+                <div class="project-card bg-white rounded-xl p-6 hover-lift fade-in-right flex flex-col h-full max-w-sm w-full" style="animation-delay: 0.5s">
+                    <h3 class="text-xl font-bold mb-3 text-navy">Share Sampatti (Real Estate Platform)</h3>
+                    <p class="text-gray-600 mb-4 flex-grow">Fractional real estate ownership platform. Managed backend deployment, scaling, and full monitoring with Prometheus and Grafana.</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="px-3 py-1 bg-orange-100 text-orange-800 rounded-full text-sm">AWS</span>
+                        <span class="px-3 py-1 bg-navy text-white rounded-full text-sm">Kubernetes</span>
+                        <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">Docker</span>
+                        <span class="px-3 py-1 bg-red-100 text-red-800 rounded-full text-sm">Prometheus</span>
+                        <span class="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-sm">Grafana</span>
+                    </div>
+                    <div class="flex gap-3 flex-wrap mt-auto">
+                        <a href="https://github.com/Planning-Earth-pvt-ltd/sampatti-backend.git" target="_blank" class="text-navy hover:text-navy-dark transition-colors">
+                            <i class="fab fa-github mr-1"></i>GitHub
+                        </a>
+                        <a href="https://sharesampatti.hashnode.dev/weekly-devops-update-automating-the-backend-stack-for-share-sampatti" target="_blank" class="text-navy hover:text-navy-dark transition-colors">
+                            <i class="fas fa-blog mr-1"></i>DevOps Stack
+                        </a>
+                        <a href="https://sharesampatti.hashnode.dev/building-a-jenkins-cicd-pipeline-with-docker-compose-sonarqube-trivy-and-monitoring-for-my-nodejs-app" target="_blank" class="text-navy hover:text-navy-dark transition-colors">
+                            <i class="fas fa-blog mr-1"></i>CI/CD Pipeline
+                        </a>
+                    </div>
+                </div>
+
+                <!-- NFC Business Card -->
+                <div class="project-card bg-white rounded-xl p-6 hover-lift slide-up flex flex-col h-full max-w-sm w-full" style="animation-delay: 0.6s">
+                    <h3 class="text-xl font-bold mb-3 text-navy">NFC Business Card (Company Project)</h3>
+                    <p class="text-gray-600 mb-4 flex-grow">NFC-powered digital business card solution. On tap, it shares contact details and portfolio instantly. Deployed and scaled backend services.</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="px-3 py-1 bg-orange-100 text-orange-800 rounded-full text-sm">AWS</span>
+                        <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">Docker</span>
+                        <span class="px-3 py-1 bg-navy text-white rounded-full text-sm">Kubernetes</span>
+                    </div>
+                    <div class="flex gap-3 mt-auto">
+                        <a href="https://github.com/Planning-Earth-pvt-ltd/NFC-CARD.git" target="_blank" class="text-navy hover:text-navy-dark transition-colors">
+                            <i class="fab fa-github mr-1"></i>GitHub
+                        </a>
+                    </div>
+                </div>
+
+                <!-- MCP Server & CRM -->
+                <div class="project-card bg-white rounded-xl p-6 hover-lift rotate-in flex flex-col h-full max-w-sm w-full" style="animation-delay: 0.7s">
+                    <h3 class="text-xl font-bold mb-3 text-navy">MCP Server & CRM (Open Source)</h3>
+                    <p class="text-gray-600 mb-4 flex-grow">Set up an MCP server and developed a CRM system with functionalities for expense/attendance tracking, leave management, and task management.</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="px-3 py-1 bg-navy text-white rounded-full text-sm">Kubernetes</span>
+                        <span class="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-sm">MCP</span>
+                        <span class="px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm">Node.js</span>
+                        <span class="px-3 py-1 bg-yellow-100 text-yellow-800 rounded-full text-sm">MongoDB</span>
+                        <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">Docker</span>
+                    </div>
+                    <div class="flex gap-3 mt-auto">
+                        <a href="https://github.com/12taran/CRM-.git" target="_blank" class="text-navy hover:text-navy-dark transition-colors">
+                            <i class="fab fa-github mr-1"></i>GitHub
+                        </a>
+                        <span class="text-green-600 text-sm font-medium">
+                            <i class="fas fa-code-branch mr-1"></i>Open Source
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-20 px-4 bg-gray-50">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 text-navy fade-in">Experience</h2>
+            <div class="relative">
+                <div class="absolute left-8 top-0 bottom-0 w-1 timeline-line rounded-full"></div>
+                
+                <div class="mb-12 fade-in-left">
+                    <div class="flex items-center mb-4">
+                        <div class="w-6 h-6 bg-navy rounded-full mr-6 relative z-10 border-4 border-white shadow-lg scale-in visible" style="animation-delay: 0.2s"></div>
+                        <div class="text-sm text-navy font-semibold">2025 – Present</div>
+                    </div>
+                    <div class="ml-12">
+                        <h3 class="text-2xl font-bold text-navy mb-2">DevOps Engineer</h3>
+                        <p class="text-xl text-gray-600 mb-3">Planning Earth Pvt Ltd</p>
+                        <p class="text-gray-600">Leading cloud infrastructure automation and deployment strategies for scalable applications with focus on reliability and security.</p>
+                    </div>
+                </div>
+
+                <div class="mb-12 fade-in-right">
+                    <div class="flex items-center mb-4">
+                        <div class="w-6 h-6 bg-navy rounded-full mr-6 relative z-10 border-4 border-white shadow-lg scale-in visible" style="animation-delay: 0.4s"></div>
+                        <div class="text-sm text-navy font-semibold">2024 – 2025</div>
+                    </div>
+                    <div class="ml-12">
+                        <h3 class="text-2xl font-bold text-navy mb-2">Cloud Development Associate</h3>
+                        <p class="text-xl text-gray-600 mb-3">Neonex Steam</p>
+                        <p class="text-gray-600">Developed and maintained cloud-native applications with emphasis on automation, scalability, and performance optimization.</p>
+                    </div>
+                </div>
+
+                <div class="fade-in-left">
+                    <div class="flex items-center mb-4">
+                        <div class="w-6 h-6 bg-navy rounded-full mr-6 relative z-10 border-4 border-white shadow-lg scale-in visible" style="animation-delay: 0.6s"></div>
+                        <div class="text-sm text-navy font-semibold">2024</div>
+                    </div>
+                    <div class="ml-12">
+                        <h3 class="text-2xl font-bold text-navy mb-2">Cloud Engineer Intern</h3>
+                        <p class="text-xl text-gray-600 mb-3">Techversys Solutions</p>
+                        <p class="text-gray-600">Gained hands-on experience with AWS services, containerization technologies, and CI/CD pipeline implementation.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blogs Section -->
+    <section id="blogs" class="py-20 px-4">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 text-navy fade-in">Latest Blogs</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 items-stretch justify-items-center">
+                <div class="bg-white rounded-xl overflow-hidden shadow-lg hover-lift scale-in flex flex-col h-full max-w-sm w-full" style="animation-delay: 0.1s">
+                    <div class="h-48 bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center relative overflow-hidden">
+                        <!-- Kubernetes & Helm Illustration -->
+                        <svg width="200" height="120" viewBox="0 0 200 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Kubernetes wheel -->
+                            <circle cx="60" cy="60" r="25" fill="white" opacity="0.9"/>
+                            <circle cx="60" cy="60" r="20" fill="none" stroke="#326CE5" stroke-width="2"/>
+                            <path d="M60 40 L70 55 L60 70 L50 55 Z" fill="#326CE5"/>
+                            <circle cx="60" cy="60" r="3" fill="#326CE5"/>
+                            <!-- Helm -->
+                            <circle cx="140" cy="60" r="25" fill="white" opacity="0.9"/>
+                            <path d="M125 50 Q140 45 155 50 Q150 60 140 65 Q130 60 125 50" fill="#0F1689"/>
+                            <path d="M135 55 L145 55 M130 60 L150 60 M135 65 L145 65" stroke="#0F1689" stroke-width="1.5"/>
+                            <!-- Connection lines -->
+                            <path d="M85 60 L115 60" stroke="white" stroke-width="2" opacity="0.7"/>
+                            <circle cx="100" cy="60" r="2" fill="white"/>
+                        </svg>
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="text-xl font-bold mb-3 text-navy">Deploying Microservices on Kubernetes with Helm</h3>
+                        <p class="text-gray-600 mb-4 flex-grow">Lessons from the trenches on deploying microservices architecture using Kubernetes and Helm for scalable applications.</p>
+                        <a href="https://sharesampatti.hashnode.dev/deploying-microservices-on-kubernetes-with-helm-lessons-from-the-trenches" target="_blank" class="inline-flex items-center btn-navy px-4 py-2 rounded-lg font-semibold mt-auto">
+                            Read More <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl overflow-hidden shadow-lg hover-lift slide-up flex flex-col h-full max-w-sm w-full" style="animation-delay: 0.2s">
+                    <div class="h-48 bg-gradient-to-br from-green-500 to-blue-600 flex items-center justify-center relative overflow-hidden">
+                        <!-- Monolithic vs Microservices Illustration -->
+                        <svg width="200" height="120" viewBox="0 0 200 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Monolithic (left side) -->
+                            <rect x="20" y="30" width="60" height="60" rx="8" fill="white" opacity="0.9"/>
+                            <text x="50" y="50" text-anchor="middle" fill="#059669" font-size="8" font-weight="bold">MONO</text>
+                            <text x="50" y="62" text-anchor="middle" fill="#059669" font-size="8" font-weight="bold">LITH</text>
+                            <text x="50" y="74" text-anchor="middle" fill="#059669" font-size="8" font-weight="bold">APP</text>
+                            
+                            <!-- VS text -->
+                            <text x="100" y="65" text-anchor="middle" fill="white" font-size="12" font-weight="bold">VS</text>
+                            
+                            <!-- Microservices (right side) -->
+                            <rect x="120" y="20" width="25" height="25" rx="4" fill="white" opacity="0.9"/>
+                            <text x="132.5" y="35" text-anchor="middle" fill="#2563EB" font-size="6" font-weight="bold">API</text>
+                            
+                            <rect x="155" y="20" width="25" height="25" rx="4" fill="white" opacity="0.9"/>
+                            <text x="167.5" y="35" text-anchor="middle" fill="#2563EB" font-size="6" font-weight="bold">DB</text>
+                            
+                            <rect x="120" y="55" width="25" height="25" rx="4" fill="white" opacity="0.9"/>
+                            <text x="132.5" y="70" text-anchor="middle" fill="#2563EB" font-size="6" font-weight="bold">AUTH</text>
+                            
+                            <rect x="155" y="55" width="25" height="25" rx="4" fill="white" opacity="0.9"/>
+                            <text x="167.5" y="70" text-anchor="middle" fill="#2563EB" font-size="6" font-weight="bold">UI</text>
+                            
+                            <!-- Connection lines -->
+                            <path d="M145 32.5 L155 32.5 M132.5 45 L132.5 55 M167.5 45 L167.5 55 M145 67.5 L155 67.5" stroke="white" stroke-width="1" opacity="0.7"/>
+                        </svg>
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="text-xl font-bold mb-3 text-navy">Monolithic and Microservices Architecture</h3>
+                        <p class="text-gray-600 mb-4 flex-grow">Deep dive into architectural patterns comparing monolithic vs microservices approaches with real-world examples and trade-offs.</p>
+                        <a href="https://sharesampatti.hashnode.dev/monolythic-and-microservices-architecture" target="_blank" class="inline-flex items-center btn-navy px-4 py-2 rounded-lg font-semibold mt-auto">
+                            Read More <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl overflow-hidden shadow-lg hover-lift rotate-in flex flex-col h-full max-w-sm w-full" style="animation-delay: 0.3s">
+                    <div class="h-48 bg-gradient-to-br from-purple-600 to-pink-600 flex items-center justify-center relative overflow-hidden">
+                        <!-- MCP Server & Speed Illustration -->
+                        <svg width="200" height="120" viewBox="0 0 200 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Server icon -->
+                            <rect x="30" y="40" width="50" height="40" rx="6" fill="white" opacity="0.9"/>
+                            <rect x="35" y="45" width="40" height="6" rx="2" fill="#7C3AED"/>
+                            <rect x="35" y="55" width="40" height="6" rx="2" fill="#7C3AED"/>
+                            <rect x="35" y="65" width="40" height="6" rx="2" fill="#7C3AED"/>
+                            <circle cx="72" cy="48" r="2" fill="#10B981"/>
+                            <circle cx="72" cy="58" r="2" fill="#10B981"/>
+                            <circle cx="72" cy="68" r="2" fill="#10B981"/>
+                            
+                            <!-- Speed lines and arrow -->
+                            <path d="M90 50 L120 50 M90 55 L115 55 M90 60 L125 60 M90 65 L110 65" stroke="white" stroke-width="2" opacity="0.8"/>
+                            <path d="M120 45 L135 60 L120 75 Z" fill="white" opacity="0.9"/>
+                            
+                            <!-- Clock/Timer -->
+                            <circle cx="160" cy="60" r="20" fill="white" opacity="0.9"/>
+                            <circle cx="160" cy="60" r="15" fill="none" stroke="#EC4899" stroke-width="2"/>
+                            <path d="M160 50 L160 60 L170 65" stroke="#EC4899" stroke-width="2" stroke-linecap="round"/>
+                            <text x="160" y="85" text-anchor="middle" fill="white" font-size="8" font-weight="bold">9 HRS</text>
+                        </svg>
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="text-xl font-bold mb-3 text-navy">The Power of MCP Server</h3>
+                        <p class="text-gray-600 mb-4 flex-grow">From e-commerce deployment to building a complete CRM system in just 9 hours using MCP server capabilities.</p>
+                        <a href="https://sharesampatti.hashnode.dev/the-power-of-mcp-from-e-commerce-deployment-to-building-a-crm-in-9-hours" target="_blank" class="inline-flex items-center btn-navy px-4 py-2 rounded-lg font-semibold mt-auto">
+                            Read More <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl overflow-hidden shadow-lg hover-lift fade-in-right flex flex-col h-full max-w-sm w-full" style="animation-delay: 0.4s">
+                    <div class="h-48 bg-gradient-to-br from-orange-500 to-red-600 flex items-center justify-center relative overflow-hidden">
+                        <!-- Kubernetes Deployment Strategy Illustration -->
+                        <svg width="200" height="120" viewBox="0 0 200 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Deployment stages -->
+                            <rect x="20" y="30" width="30" height="20" rx="4" fill="white" opacity="0.9"/>
+                            <text x="35" y="43" text-anchor="middle" fill="#EA580C" font-size="6" font-weight="bold">V1</text>
+                            <text x="35" y="55" text-anchor="middle" fill="#EA580C" font-size="5">80%</text>
+                            
+                            <rect x="60" y="30" width="30" height="20" rx="4" fill="white" opacity="0.9"/>
+                            <text x="75" y="43" text-anchor="middle" fill="#EA580C" font-size="6" font-weight="bold">V1</text>
+                            <text x="75" y="55" text-anchor="middle" fill="#EA580C" font-size="5">50%</text>
+                            
+                            <rect x="100" y="30" width="30" height="20" rx="4" fill="white" opacity="0.9"/>
+                            <text x="115" y="43" text-anchor="middle" fill="#EA580C" font-size="6" font-weight="bold">V1</text>
+                            <text x="115" y="55" text-anchor="middle" fill="#EA580C" font-size="5">20%</text>
+                            
+                            <rect x="140" y="30" width="30" height="20" rx="4" fill="white" opacity="0.9"/>
+                            <text x="155" y="43" text-anchor="middle" fill="#DC2626" font-size="6" font-weight="bold">V2</text>
+                            <text x="155" y="55" text-anchor="middle" fill="#DC2626" font-size="5">100%</text>
+                            
+                            <!-- New version bars -->
+                            <rect x="60" y="60" width="30" height="20" rx="4" fill="white" opacity="0.7"/>
+                            <text x="75" y="73" text-anchor="middle" fill="#DC2626" font-size="6" font-weight="bold">V2</text>
+                            <text x="75" y="85" text-anchor="middle" fill="#DC2626" font-size="5">50%</text>
+                            
+                            <rect x="100" y="60" width="30" height="20" rx="4" fill="white" opacity="0.7"/>
+                            <text x="115" y="73" text-anchor="middle" fill="#DC2626" font-size="6" font-weight="bold">V2</text>
+                            <text x="115" y="85" text-anchor="middle" fill="#DC2626" font-size="5">80%</text>
+                            
+                            <!-- Arrows -->
+                            <path d="M50 40 L60 40 M90 40 L100 40 M130 40 L140 40" stroke="white" stroke-width="2" opacity="0.8"/>
+                            <path d="M48 37 L52 40 L48 43 M88 37 L92 40 L88 43 M128 37 L132 40 L128 43" fill="white" opacity="0.8"/>
+                            
+                            <!-- Canary label -->
+                            <text x="100" y="15" text-anchor="middle" fill="white" font-size="10" font-weight="bold">CANARY</text>
+                        </svg>
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="text-xl font-bold mb-3 text-navy">Kubernetes Deployment Strategy</h3>
+                        <p class="text-gray-600 mb-4 flex-grow">Comprehensive guide to Kubernetes deployment strategies including rolling updates, blue-green, and canary deployments.</p>
+                        <a href="https://sharesampatti.hashnode.dev/kubernetes-deployment-strategy" target="_blank" class="inline-flex items-center btn-navy px-4 py-2 rounded-lg font-semibold mt-auto">
+                            Read More <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Follow on Hashnode -->
+            <div class="mt-16 text-center fade-in">
+                <div class="inline-flex items-center gap-3 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 hover-lift">
+                    <svg width="24" height="24" viewBox="0 0 337 337" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M23 168.5C23 75.5939 75.5939 23 168.5 23C261.406 23 314 75.5939 314 168.5C314 261.406 261.406 314 168.5 314C75.5939 314 23 261.406 23 168.5Z" fill="white"/>
+                        <path d="M168.5 86C198.928 86 223.5 110.572 223.5 141C223.5 171.428 198.928 196 168.5 196C138.072 196 113.5 171.428 113.5 141C113.5 110.572 138.072 86 168.5 86Z" fill="#2962FF"/>
+                    </svg>
+                    <a href="https://hashnode.com/@TaranpreetS" target="_blank" class="text-white hover:text-white">
+                        Follow on Hashnode for More DevOps Content
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 px-4 bg-gray-50">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 text-navy fade-in">Get In Touch</h2>
+            <div class="grid md:grid-cols-2 gap-12">
+                <div class="fade-in-left">
+                    <h3 class="text-2xl font-bold mb-6 text-navy">Let's Connect</h3>
+                    <p class="text-gray-600 mb-8">I'm always interested in discussing new opportunities, innovative projects, and collaborations in the DevOps and cloud automation space.</p>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-center slide-up">
+                            <i class="fas fa-envelope text-navy w-6"></i>
+                            <span class="ml-3 text-gray-700">taranpreetbatra1@gmail.com</span>
+                        </div>
+                        <div class="flex items-center slide-up" style="animation-delay: 0.1s">
+                            <i class="fas fa-map-marker-alt text-navy w-6"></i>
+                            <span class="ml-3 text-gray-700">Available for Remote Work</span>
+                        </div>
+                    </div>
+
+                    <!-- Social Links -->
+                    <div class="mt-8">
+                        <h4 class="text-lg font-semibold mb-4 text-navy">Connect With Me</h4>
+                        <div class="flex space-x-4">
+                            <a href="https://github.com/12taran" target="_blank" class="w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center hover-lift transition-all duration-300 hover:bg-gray-700 scale-in" style="animation-delay: 0.2s">
+                                <i class="fab fa-github text-white"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/in/taranpreet-batra/" target="_blank" class="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center hover-lift transition-all duration-300 hover:bg-blue-700 scale-in" style="animation-delay: 0.3s">
+                                <i class="fab fa-linkedin text-white"></i>
+                            </a>
+                            <a href="https://x.com/taran43604" target="_blank" class="w-12 h-12 bg-gray-900 rounded-full flex items-center justify-center hover-lift transition-all duration-300 hover:bg-black scale-in" style="animation-delay: 0.4s">
+                                <i class="fab fa-twitter text-white"></i>
+                            </a>
+                            <a href="https://hashnode.com/@TaranpreetS" target="_blank" class="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center hover-lift transition-all duration-300 hover:bg-blue-700 scale-in" style="animation-delay: 0.5s">
+                                <svg width="20" height="20" viewBox="0 0 337 337" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M23 168.5C23 75.5939 75.5939 23 168.5 23C261.406 23 314 75.5939 314 168.5C314 261.406 261.406 314 168.5 314C75.5939 314 23 261.406 23 168.5Z" fill="white"/>
+                                    <path d="M168.5 86C198.928 86 223.5 110.572 223.5 141C223.5 171.428 198.928 196 168.5 196C138.072 196 113.5 171.428 113.5 141C113.5 110.572 138.072 86 168.5 86Z" fill="#2962FF"/>
+                                </svg>
+                            </a>
+                            <a href="mailto:taranpreetbatra1@gmail.com" class="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center hover-lift transition-all duration-300 hover:bg-red-700 scale-in" style="animation-delay: 0.6s">
+                                <i class="fas fa-envelope text-white"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="fade-in-right">
+                    <form class="space-y-6" id="contactForm">
+                        <div class="slide-up" style="animation-delay: 0.1s">
+                            <input type="text" id="userName" placeholder="Your Name" class="w-full px-4 py-3 bg-white border-2 border-gray-300 rounded-lg focus:outline-none input-focus transition-all duration-300">
+                        </div>
+                        <div class="slide-up" style="animation-delay: 0.2s">
+                            <input type="email" id="userEmail" placeholder="Your Email" class="w-full px-4 py-3 bg-white border-2 border-gray-300 rounded-lg focus:outline-none input-focus transition-all duration-300">
+                        </div>
+                        <div class="slide-up" style="animation-delay: 0.3s">
+                            <textarea rows="5" id="userMessage" placeholder="Your Message" class="w-full px-4 py-3 bg-white border-2 border-gray-300 rounded-lg focus:outline-none input-focus transition-all duration-300 resize-none"></textarea>
+                        </div>
+                        <button type="submit" class="w-full btn-navy px-6 py-3 rounded-lg font-semibold scale-in" style="animation-delay: 0.4s">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-navy text-white">
+        <div class="max-w-6xl mx-auto px-4 py-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <!-- Copyright -->
+                <div class="text-center md:text-left mb-6 md:mb-0">
+                    <p class="text-gray-300 text-sm">
+                        © 2025 Built with ❤️ by Taranpreet
+                    </p>
+                </div>
+
+                <!-- Social Links -->
+                <div class="text-center md:text-right">
+                    <div class="flex justify-center md:justify-end space-x-4">
+                        <a href="https://github.com/12taran" target="_blank" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-all duration-300 hover-lift">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/taranpreet-batra/" target="_blank" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-all duration-300 hover-lift">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="https://x.com/taran43604" target="_blank" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-all duration-300 hover-lift">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="https://hashnode.com/@TaranpreetS" target="_blank" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-all duration-300 hover-lift">
+                            <svg width="16" height="16" viewBox="0 0 337 337" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M23 168.5C23 75.5939 75.5939 23 168.5 23C261.406 23 314 75.5939 314 168.5C314 261.406 261.406 314 168.5 314C75.5939 314 23 261.406 23 168.5Z" fill="white"/>
+                                <path d="M168.5 86C198.928 86 223.5 110.572 223.5 141C223.5 171.428 198.928 196 168.5 196C138.072 196 113.5 171.428 113.5 141C113.5 110.572 138.072 86 168.5 86Z" fill="#2962FF"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Active navigation highlighting
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (scrollY >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Animation on scroll
+        const observerOptions = {
+            threshold: 0.15,
+            rootMargin: '0px 0px -80px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // Add a small delay to make animations feel more natural
+                    setTimeout(() => {
+                        entry.target.classList.add('visible');
+                    }, 50);
+                }
+            });
+        }, observerOptions);
+
+        // Observe all animation elements
+        document.querySelectorAll('.fade-in, .fade-in-left, .fade-in-right, .scale-in, .slide-up, .rotate-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Hero buttons functionality
+        document.querySelectorAll('button').forEach(button => {
+            button.addEventListener('click', (e) => {
+                if (e.target.textContent.includes('View My Work')) {
+                    document.querySelector('#projects').scrollIntoView({ behavior: 'smooth' });
+                } else if (e.target.textContent.includes('Contact Me')) {
+                    document.querySelector('#contact').scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        // Form submission - Opens email client with pre-filled content
+        document.getElementById('contactForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const name = document.getElementById('userName').value;
+            const email = document.getElementById('userEmail').value;
+            const message = document.getElementById('userMessage').value;
+            
+            // Create email content
+            const subject = `Portfolio Contact from ${name || 'Website Visitor'}`;
+            const body = `Hi Taranpreet,
+
+${message || 'No message provided'}
+
+Best regards,
+${name || 'Anonymous'}
+${email ? `Email: ${email}` : ''}`;
+            
+            // Create mailto link
+            const mailtoLink = `mailto:taranpreetbatra1@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+            
+            // Open email client
+            window.location.href = mailtoLink;
+            
+            // Show confirmation
+            alert('Opening your email client! The message will be pre-filled for you to send.');
+        });
+
+
+    </script>
+</body>
+</html>

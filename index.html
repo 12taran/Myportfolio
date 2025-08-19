@@ -1,8 +1,14 @@
+
+<!-- Change this -->
+<a href="https://github.com/yourusername/ecommerce-k8s" target="_blank">
+
+<!-- To this (with your real repo) -->
+<a href="https://github.com/12taran/ecommerce-deployment" target="_blank">
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>Taranpreet Singh Batra - DevOps Engineer</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
@@ -14,6 +20,14 @@
                         'navy': '#03045e',
                         'navy-light': '#0d1b2a',
                         'navy-dark': '#020340'
+                    },
+                    screens: {
+                        'xs': '375px',
+                        'sm': '640px',
+                        'md': '768px',
+                        'lg': '1024px',
+                        'xl': '1280px',
+                        '2xl': '1536px'
                     }
                 }
             }
@@ -157,348 +171,664 @@
             box-shadow: 0 0 0 3px rgba(3, 4, 94, 0.1);
         }
         
-        /* Floating Shapes Animation */
-        .floating-shapes {
+        /* Mobile-First Responsive Design */
+        @media (max-width: 640px) {
+            .container {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+            
+            /* Hide complex animations on mobile for better performance */
+            .code-float, .particle {
+                display: none;
+            }
+            
+            /* Ensure text is readable on small screens */
+            body {
+                font-size: 16px;
+                line-height: 1.6;
+            }
+            
+            /* Better spacing for mobile */
+            section {
+                padding-top: 3rem;
+                padding-bottom: 3rem;
+            }
+            
+            /* Mobile navigation improvements */
+            #mobile-menu {
+                max-height: calc(100vh - 4rem);
+                overflow-y: auto;
+            }
+            
+            /* Prevent horizontal scroll */
+            .overflow-x-hidden {
+                overflow-x: hidden;
+            }
+        }
+        
+        /* Touch-friendly interactions */
+        @media (hover: none) and (pointer: coarse) {
+            .hover-lift:hover {
+                transform: none;
+            }
+            
+            .hover-lift:active {
+                transform: translateY(-2px);
+            }
+            
+            .btn-navy:hover {
+                transform: none;
+            }
+            
+            .btn-navy:active {
+                transform: translateY(-1px);
+            }
+            
+            /* Larger touch targets for mobile */
+            button, a {
+                min-height: 44px;
+                min-width: 44px;
+            }
+            
+            /* Better form inputs for mobile */
+            input, textarea {
+                font-size: 16px; /* Prevents zoom on iOS */
+            }
+        }
+        
+        /* Landscape mobile optimization */
+        @media (max-width: 896px) and (orientation: landscape) {
+            .min-h-screen {
+                min-height: 100vh;
+            }
+            
+            .hero-stats {
+                margin-top: 2rem;
+            }
+        }
+        
+        /* Very small screens */
+        @media (max-width: 375px) {
+            .px-4 {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+            
+            .gap-4 {
+                gap: 0.75rem;
+            }
+            
+            .text-3xl {
+                font-size: 1.75rem;
+            }
+        }
+        
+        /* Hero Section Animations */
+        .hero-avatar {
+            animation: heroFadeIn 1s ease-out 0.2s both;
+        }
+        
+        .hero-greeting {
+            animation: heroFadeIn 1s ease-out 0.4s both;
+        }
+        
+        .hero-title {
+            animation: heroSlideUp 1s ease-out 0.6s both;
+        }
+        
+        .hero-role {
+            animation: heroFadeIn 1s ease-out 0.8s both;
+        }
+        
+        .hero-description {
+            animation: heroFadeIn 1s ease-out 1s both;
+        }
+        
+        .hero-buttons {
+            animation: heroSlideUp 1s ease-out 1.2s both;
+        }
+        
+        .hero-stats {
+            animation: heroFadeIn 1s ease-out 1.4s both;
+        }
+        
+        @keyframes heroFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes heroSlideUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Grid Background */
+        .grid-background {
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: gridMove 20s linear infinite;
+        }
+        
+        @keyframes gridMove {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+        
+        /* Floating Code Elements */
+        .code-float {
+            position: absolute;
+            font-family: 'Courier New', monospace;
+            font-size: clamp(12px, 2vw, 16px);
+            font-weight: bold;
+            color: rgba(255,255,255,0.3);
+            animation: codeFloat 15s infinite linear;
+            pointer-events: none;
+        }
+        
+        .code-1 { top: 10%; left: 5%; animation-delay: 0s; }
+        .code-2 { top: 20%; right: 10%; animation-delay: -3s; }
+        .code-3 { top: 60%; left: 8%; animation-delay: -6s; }
+        .code-4 { top: 70%; right: 15%; animation-delay: -9s; }
+        .code-5 { top: 40%; left: 3%; animation-delay: -12s; }
+        .code-6 { top: 80%; right: 5%; animation-delay: -15s; }
+        
+        @keyframes codeFloat {
+            0%, 100% {
+                transform: translateY(0px) rotate(0deg);
+                opacity: 0.3;
+            }
+            25% {
+                transform: translateY(-20px) rotate(2deg);
+                opacity: 0.6;
+            }
+            50% {
+                transform: translateY(-10px) rotate(-1deg);
+                opacity: 0.4;
+            }
+            75% {
+                transform: translateY(-30px) rotate(1deg);
+                opacity: 0.5;
+            }
+        }
+        
+        /* Particle System */
+        .particles {
             position: relative;
             width: 100%;
             height: 100%;
         }
         
-        .shape {
+        .particle {
             position: absolute;
-            background: linear-gradient(45deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
+            width: 4px;
+            height: 4px;
+            background: rgba(255,255,255,0.6);
             border-radius: 50%;
-            animation: float 20s infinite linear;
+            animation: particleFloat 8s infinite linear;
         }
         
-        .shape-1 {
-            width: 80px;
-            height: 80px;
-            top: 20%;
-            left: 10%;
-            animation-delay: 0s;
-            animation-duration: 25s;
-        }
+        .particle-1 { top: 20%; left: 10%; animation-delay: 0s; }
+        .particle-2 { top: 40%; left: 20%; animation-delay: -1s; }
+        .particle-3 { top: 60%; left: 30%; animation-delay: -2s; }
+        .particle-4 { top: 80%; left: 40%; animation-delay: -3s; }
+        .particle-5 { top: 30%; right: 10%; animation-delay: -4s; }
+        .particle-6 { top: 50%; right: 20%; animation-delay: -5s; }
+        .particle-7 { top: 70%; right: 30%; animation-delay: -6s; }
+        .particle-8 { top: 90%; right: 40%; animation-delay: -7s; }
         
-        .shape-2 {
-            width: 120px;
-            height: 120px;
-            top: 60%;
-            left: 80%;
-            animation-delay: -5s;
-            animation-duration: 30s;
-        }
-        
-        .shape-3 {
-            width: 60px;
-            height: 60px;
-            top: 80%;
-            left: 20%;
-            animation-delay: -10s;
-            animation-duration: 20s;
-        }
-        
-        .shape-4 {
-            width: 100px;
-            height: 100px;
-            top: 10%;
-            left: 70%;
-            animation-delay: -15s;
-            animation-duration: 35s;
-        }
-        
-        .shape-5 {
-            width: 40px;
-            height: 40px;
-            top: 40%;
-            left: 5%;
-            animation-delay: -20s;
-            animation-duration: 15s;
-        }
-        
-        .shape-6 {
-            width: 90px;
-            height: 90px;
-            top: 70%;
-            left: 60%;
-            animation-delay: -25s;
-            animation-duration: 28s;
-        }
-        
-        @keyframes float {
+        @keyframes particleFloat {
             0% {
-                transform: translateY(0px) rotate(0deg);
-                opacity: 0.7;
+                transform: translateY(100vh) scale(0);
+                opacity: 0;
             }
-            25% {
-                transform: translateY(-20px) rotate(90deg);
-                opacity: 0.4;
+            10% {
+                opacity: 1;
             }
-            50% {
-                transform: translateY(-40px) rotate(180deg);
-                opacity: 0.7;
-            }
-            75% {
-                transform: translateY(-20px) rotate(270deg);
-                opacity: 0.4;
+            90% {
+                opacity: 1;
             }
             100% {
-                transform: translateY(0px) rotate(360deg);
-                opacity: 0.7;
+                transform: translateY(-100px) scale(1);
+                opacity: 0;
             }
+        }
+        
+        /* Typewriter Effect */
+        .typewriter-text {
+            border-right: 2px solid transparent;
+            animation: typewriter 4s steps(20) infinite;
+        }
+        
+        .typewriter-cursor {
+            animation: blink 1s infinite;
+            margin-left: 2px;
+        }
+        
+        @keyframes typewriter {
+            0%, 50% { border-right-color: #60A5FA; }
+            51%, 100% { border-right-color: transparent; }
+        }
+        
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+        
+        /* Scroll Indicator */
+        .scroll-indicator {
+            animation: bounce 2s infinite;
+        }
+        
+        .scroll-mouse {
+            width: 24px;
+            height: 40px;
+            border: 2px solid rgba(255,255,255,0.5);
+            border-radius: 12px;
+            position: relative;
+            margin: 0 auto;
+        }
+        
+        .scroll-wheel {
+            width: 4px;
+            height: 8px;
+            background: rgba(255,255,255,0.7);
+            border-radius: 2px;
+            position: absolute;
+            top: 6px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: scrollWheel 2s infinite;
+        }
+        
+        @keyframes scrollWheel {
+            0% { top: 6px; opacity: 1; }
+            100% { top: 20px; opacity: 0; }
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+        
+        /* Stats Animation */
+        .stat-item {
+            animation: statPulse 3s ease-in-out infinite;
+            animation-delay: calc(var(--delay, 0) * 0.2s);
+        }
+        
+        .stat-item:nth-child(1) { --delay: 0; }
+        .stat-item:nth-child(2) { --delay: 1; }
+        .stat-item:nth-child(3) { --delay: 2; }
+        .stat-item:nth-child(4) { --delay: 3; }
+        
+        @keyframes statPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
         }
     </style>
 </head>
 <body class="bg-white text-gray-800">
-    <nav class="fixed top-0 w-full bg-white/95 backdrop-blur-sm z-50 border-b border-gray-200">
+    <!-- Navigation -->
+    <nav class="hidden md:block fixed top-0 w-full bg-white/95 backdrop-blur-sm z-50 border-b border-gray-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-16">
-                <a href="https://www.linkedin.com/in/taranpreet-batra/" target="_blank" class="text-2xl font-bold text-navy hover:text-navy-dark transition-colors duration-300">Taranpreet Singh</a>
-                <div class="hidden md:flex space-x-8">
-                    <a href="#about" class="nav-link text-gray-700 hover:text-navy">About</a>
-                    <a href="#projects" class="nav-link text-gray-700 hover:text-navy">Projects</a>
-                    <a href="#experience" class="nav-link text-gray-700 hover:text-navy">Experience</a>
-                    <a href="#blogs" class="nav-link text-gray-700 hover:text-navy">Blogs</a>
-                    <a href="#contact" class="nav-link text-gray-700 hover:text-navy">Contact</a>
-                </div>
-                <div class="md:hidden">
-                    <button class="text-gray-700 hover:text-navy">
-                        <i class="fas fa-bars"></i>
-                    </button>
+            <div class="flex justify-between items-center h-16 sm:h-18">
+                <a href="https://www.linkedin.com/in/taranpreet-batra/" target="_blank" class="text-lg sm:text-xl font-bold text-navy hover:text-navy-dark transition-colors duration-300 truncate">
+                    <span class="sm:inline lg:hidden">Taranpreet S.</span>
+                    <span class="hidden lg:inline">Taranpreet Singh</span>
+                </a>
+                <div class="flex space-x-6 lg:space-x-8">
+                    <a href="#about" class="nav-link text-gray-700 hover:text-navy text-sm lg:text-base">About</a>
+                    <a href="#projects" class="nav-link text-gray-700 hover:text-navy text-sm lg:text-base">Projects</a>
+                    <a href="#experience" class="nav-link text-gray-700 hover:text-navy text-sm lg:text-base">Experience</a>
+                    <a href="#blogs" class="nav-link text-gray-700 hover:text-navy text-sm lg:text-base">Blogs</a>
+                    <a href="#contact" class="nav-link text-gray-700 hover:text-navy text-sm lg:text-base">Contact</a>
                 </div>
             </div>
         </div>
     </nav>
 
-    <section class="min-h-screen bg-navy text-white flex items-center justify-center relative overflow-hidden">
-        <div class="absolute inset-0 opacity-20">
-            <div class="floating-shapes">
-                <div class="shape shape-1"></div>
-                <div class="shape shape-2"></div>
-                <div class="shape shape-3"></div>
-                <div class="shape shape-4"></div>
-                <div class="shape shape-5"></div>
-                <div class="shape shape-6"></div>
+    <!-- Hero Section -->
+    <section class="min-h-screen bg-gradient-to-br from-slate-900 via-navy to-indigo-900 text-white flex items-center justify-center relative overflow-hidden pt-0 md:pt-18">
+        <!-- Animated Grid Background -->
+        <div class="absolute inset-0 opacity-10">
+            <div class="grid-background"></div>
+        </div>
+        
+        <!-- Floating Code Elements -->
+        <div class="absolute inset-0 opacity-20 hidden sm:block">
+            <div class="code-float code-1">kubectl apply -f</div>
+            <div class="code-float code-2">docker build .</div>
+            <div class="code-float code-3">terraform init</div>
+            <div class="code-float code-4">helm install</div>
+            <div class="code-float code-5">aws eks</div>
+            <div class="code-float code-6">CI/CD</div>
+        </div>
+        
+        <!-- Particle System -->
+        <div class="absolute inset-0 hidden md:block">
+            <div class="particles">
+                <div class="particle particle-1"></div>
+                <div class="particle particle-2"></div>
+                <div class="particle particle-3"></div>
+                <div class="particle particle-4"></div>
+                <div class="particle particle-5"></div>
+                <div class="particle particle-6"></div>
+                <div class="particle particle-7"></div>
+                <div class="particle particle-8"></div>
             </div>
         </div>
         
-        <div class="absolute inset-0 bg-gradient-to-br from-navy via-navy-light to-navy-dark opacity-90"></div>
-        
-        <div class="text-center px-4 fade-in relative z-10">
-            <h1 class="text-5xl md:text-7xl font-bold mb-6">
-                Taranpreet Singh Batra
+        <!-- Main Content -->
+        <div class="text-center px-4 sm:px-6 lg:px-8 relative z-20 w-full max-w-6xl mx-auto">
+            
+            <!-- Greeting -->
+            <div class="hero-greeting mb-6 sm:mb-8">
+                <span class="inline-block px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-base sm:text-lg text-blue-200 font-medium border border-white/20 animate-pulse">
+                    Hello, I am
+                </span>
+            </div>
+            
+            <!-- Name with Dynamic Effects -->
+            <h1 class="hero-title mb-6 sm:mb-8">
+                <span class="block text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black bg-gradient-to-r from-white via-blue-100 to-purple-200 bg-clip-text text-transparent leading-tight animate-bounce">
+                    Taranpreet Singh
+                </span>
+                <span class="block text-xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-blue-300 mt-2 sm:mt-4 animate-pulse">
+                    Batra
+                </span>
             </h1>
-            <p class="text-xl md:text-2xl mb-8 text-gray-200 max-w-3xl mx-auto">
-                DevOps Engineer | Cloud Architect | Automation Lover
+            
+            <!-- Dynamic Role with Typewriter Effect -->
+            <div class="hero-role mb-8 sm:mb-10">
+                <div class="text-lg sm:text-2xl md:text-3xl lg:text-4xl font-semibold text-gray-200 min-h-[2em] flex items-center justify-center">
+                    <span class="typewriter-text">DevOps Engineer</span>
+                    <span class="typewriter-cursor">|</span>
+                </div>
+            </div>
+            
+            <!-- Description -->
+            <p class="hero-description text-sm sm:text-lg md:text-xl lg:text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed mb-10 sm:mb-12 px-2">
+                Transforming ideas into scalable cloud solutions with 
+                <span class="text-blue-400 font-semibold">Kubernetes</span>, 
+                <span class="text-orange-400 font-semibold">AWS</span>, and 
+                <span class="text-purple-400 font-semibold">DevOps automation</span>
             </p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <button class="px-8 py-4 bg-white text-navy rounded-lg font-semibold hover:bg-gray-100 transition-all duration-300 hover-lift">
-                    View My Work
+            
+            <!-- CTA Buttons -->
+            <div class="hero-buttons flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center max-w-lg mx-auto px-4">
+                <button class="group relative overflow-hidden bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-bold py-4 px-6 sm:px-8 rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-2xl min-h-[56px] touch-manipulation animate-pulse hover:animate-none text-sm sm:text-base">
+                    <span class="relative z-10 flex items-center justify-center gap-2">
+                        <i class="fas fa-rocket animate-bounce"></i>
+                        View My Work
+                    </span>
+                    <div class="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </button>
-                <button class="px-8 py-4 border-2 border-white rounded-lg font-semibold hover:bg-white hover:text-navy transition-all duration-300 hover-lift">
-                    Contact Me
+                
+                <button class="group relative overflow-hidden bg-transparent border-2 border-white/30 hover:border-white text-white font-bold py-4 px-6 sm:px-8 rounded-xl transition-all duration-300 transform hover:scale-105 backdrop-blur-sm hover:bg-white/10 min-h-[56px] touch-manipulation animate-pulse hover:animate-none text-sm sm:text-base">
+                    <span class="flex items-center justify-center gap-2">
+                        <i class="fas fa-paper-plane animate-pulse"></i>
+                        Let's Connect
+                    </span>
                 </button>
+            </div>
+            
+            <!-- Stats/Highlights -->
+            <div class="hero-stats mt-16 sm:mt-20 grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-6 max-w-4xl mx-auto px-4">
+                <div class="stat-item text-center p-3 sm:p-4 rounded-xl bg-white/5 backdrop-blur-sm border border-white/10">
+                    <div class="text-xl sm:text-3xl md:text-4xl font-bold text-blue-400 mb-1">5+</div>
+                    <div class="text-xs sm:text-sm text-gray-300">Projects</div>
+                </div>
+                <div class="stat-item text-center p-3 sm:p-4 rounded-xl bg-white/5 backdrop-blur-sm border border-white/10">
+                    <div class="text-xl sm:text-3xl md:text-4xl font-bold text-purple-400 mb-1">1.5+</div>
+                    <div class="text-xs sm:text-sm text-gray-300">Years Exp</div>
+                </div>
+                <div class="stat-item text-center p-3 sm:p-4 rounded-xl bg-white/5 backdrop-blur-sm border border-white/10">
+                    <div class="text-xl sm:text-3xl md:text-4xl font-bold text-orange-400 mb-1">10+</div>
+                    <div class="text-xs sm:text-sm text-gray-300">Technologies</div>
+                </div>
+                <div class="stat-item text-center p-3 sm:p-4 rounded-xl bg-white/5 backdrop-blur-sm border border-white/10">
+                    <div class="text-xl sm:text-3xl md:text-4xl font-bold text-green-400 mb-1">24/7</div>
+                    <div class="text-xs sm:text-sm text-gray-300">Uptime Focus</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 hidden sm:block">
+            <div class="scroll-indicator">
+                <div class="scroll-mouse">
+                    <div class="scroll-wheel"></div>
+                </div>
+                <div class="text-xs text-gray-400 mt-2">Scroll Down</div>
             </div>
         </div>
     </section>
 
-    <section id="about" class="py-20 px-4 bg-gray-50">
+    <!-- About Section -->
+    <section id="about" class="py-12 sm:py-16 lg:py-20 px-4 bg-gray-50">
         <div class="max-w-6xl mx-auto">
-            <h2 class="text-4xl md:text-5xl font-bold text-center mb-12 text-navy fade-in">About Me</h2>
-            <div class="text-center mb-16 fade-in">
-                <p class="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+            <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-8 sm:mb-12 text-navy fade-in">About Me</h2>
+            <div class="text-center mb-12 sm:mb-16 fade-in">
+                <p class="text-base sm:text-lg md:text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed px-4">
                     DevOps Engineer with experience in deploying and automating Cloud-based applications to make products reliable, scalable, and secure.
                 </p>
             </div>
             
-            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-11 gap-6 justify-items-center max-w-6xl mx-auto">
-                <div class="skill-icon text-center scale-in" style="animation-delay: 0.1s">
-                    <div class="w-16 h-16 mx-auto mb-3 bg-orange-500 rounded-lg flex items-center justify-center hover:shadow-lg transition-all duration-300">
-                        <i class="fab fa-aws text-2xl text-white"></i>
+            <!-- Skills Grid -->
+            <div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 xl:grid-cols-11 gap-4 sm:gap-6 justify-items-center max-w-6xl mx-auto">
+                <div class="skill-icon text-center scale-in w-full" style="animation-delay: 0.1s">
+                    <div class="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 mx-auto mb-2 sm:mb-3 bg-orange-500 rounded-lg flex items-center justify-center hover:shadow-lg transition-all duration-300 touch-manipulation">
+                        <i class="fab fa-aws text-base sm:text-lg lg:text-xl xl:text-2xl text-white"></i>
                     </div>
-                    <span class="text-sm text-gray-600 font-medium">AWS</span>
+                    <span class="text-xs sm:text-sm text-gray-600 font-medium block">AWS</span>
                 </div>
-                <div class="skill-icon text-center scale-in" style="animation-delay: 0.15s">
-                    <div class="w-16 h-16 mx-auto mb-3 bg-blue-500 rounded-lg flex items-center justify-center hover:shadow-lg transition-all duration-300">
-                        <i class="fab fa-docker text-2xl text-white"></i>
+                <div class="skill-icon text-center scale-in w-full" style="animation-delay: 0.15s">
+                    <div class="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 mx-auto mb-2 sm:mb-3 bg-blue-500 rounded-lg flex items-center justify-center hover:shadow-lg transition-all duration-300 touch-manipulation">
+                        <i class="fab fa-docker text-base sm:text-lg lg:text-xl xl:text-2xl text-white"></i>
                     </div>
-                    <span class="text-sm text-gray-600 font-medium">Docker</span>
+                    <span class="text-xs sm:text-sm text-gray-600 font-medium block">Docker</span>
                 </div>
-                <div class="skill-icon text-center scale-in" style="animation-delay: 0.2s">
-                    <div class="w-16 h-16 mx-auto mb-3 bg-navy rounded-lg flex items-center justify-center hover:shadow-lg transition-all duration-300">
-                        <i class="fas fa-dharmachakra text-2xl text-white"></i>
+                <div class="skill-icon text-center scale-in w-full" style="animation-delay: 0.2s">
+                    <div class="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 mx-auto mb-2 sm:mb-3 bg-navy rounded-lg flex items-center justify-center hover:shadow-lg transition-all duration-300 touch-manipulation">
+                        <i class="fas fa-dharmachakra text-base sm:text-lg lg:text-xl xl:text-2xl text-white"></i>
                     </div>
-                    <span class="text-sm text-gray-600 font-medium">Kubernetes</span>
+                    <span class="text-xs sm:text-sm text-gray-600 font-medium block">Kubernetes</span>
                 </div>
-                <div class="skill-icon text-center scale-in" style="animation-delay: 0.25s">
-                    <div class="w-16 h-16 mx-auto mb-3 bg-red-500 rounded-lg flex items-center justify-center hover:shadow-lg transition-all duration-300">
-                        <i class="fas fa-hammer text-2xl text-white"></i>
+                <div class="skill-icon text-center scale-in w-full" style="animation-delay: 0.25s">
+                    <div class="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 mx-auto mb-2 sm:mb-3 bg-red-500 rounded-lg flex items-center justify-center hover:shadow-lg transition-all duration-300 touch-manipulation">
+                        <i class="fas fa-hammer text-base sm:text-lg lg:text-xl xl:text-2xl text-white"></i>
                     </div>
-                    <span class="text-sm text-gray-600 font-medium">Jenkins</span>
+                    <span class="text-xs sm:text-sm text-gray-600 font-medium block">Jenkins</span>
                 </div>
-                <div class="skill-icon text-center scale-in" style="animation-delay: 0.3s">
-                    <div class="w-16 h-16 mx-auto mb-3 bg-gray-800 rounded-lg flex items-center justify-center hover:shadow-lg transition-all duration-300">
-                        <i class="fab fa-linux text-2xl text-white"></i>
+                <div class="skill-icon text-center scale-in w-full" style="animation-delay: 0.3s">
+                    <div class="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 mx-auto mb-2 sm:mb-3 bg-gray-800 rounded-lg flex items-center justify-center hover:shadow-lg transition-all duration-300 touch-manipulation">
+                        <i class="fab fa-linux text-base sm:text-lg lg:text-xl xl:text-2xl text-white"></i>
                     </div>
-                    <span class="text-sm text-gray-600 font-medium">Linux</span>
+                    <span class="text-xs sm:text-sm text-gray-600 font-medium block">Linux</span>
                 </div>
-                <div class="skill-icon text-center scale-in" style="animation-delay: 0.35s">
-                    <div class="w-16 h-16 mx-auto mb-3 bg-gray-900 rounded-lg flex items-center justify-center hover:shadow-lg transition-all duration-300">
-                        <i class="fab fa-github text-2xl text-white"></i>
+                <div class="skill-icon text-center scale-in w-full" style="animation-delay: 0.35s">
+                    <div class="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 mx-auto mb-2 sm:mb-3 bg-gray-900 rounded-lg flex items-center justify-center hover:shadow-lg transition-all duration-300 touch-manipulation">
+                        <i class="fab fa-github text-base sm:text-lg lg:text-xl xl:text-2xl text-white"></i>
                     </div>
-                    <span class="text-sm text-gray-600 font-medium">GitHub</span>
+                    <span class="text-xs sm:text-sm text-gray-600 font-medium block">GitHub</span>
                 </div>
-                <div class="skill-icon text-center scale-in" style="animation-delay: 0.4s">
-                    <div class="w-16 h-16 mx-auto mb-3 bg-yellow-500 rounded-lg flex items-center justify-center hover:shadow-lg transition-all duration-300">
-                        <i class="fab fa-python text-2xl text-white"></i>
+                <div class="skill-icon text-center scale-in w-full" style="animation-delay: 0.4s">
+                    <div class="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 mx-auto mb-2 sm:mb-3 bg-yellow-500 rounded-lg flex items-center justify-center hover:shadow-lg transition-all duration-300 touch-manipulation">
+                        <i class="fab fa-python text-base sm:text-lg lg:text-xl xl:text-2xl text-white"></i>
                     </div>
-                    <span class="text-sm text-gray-600 font-medium">Python</span>
+                    <span class="text-xs sm:text-sm text-gray-600 font-medium block">Python</span>
                 </div>
-                <div class="skill-icon text-center scale-in" style="animation-delay: 0.45s">
-                    <div class="w-16 h-16 mx-auto mb-3 bg-yellow-400 rounded-lg flex items-center justify-center hover:shadow-lg transition-all duration-300">
-                        <i class="fab fa-js-square text-2xl text-white"></i>
+                <div class="skill-icon text-center scale-in w-full" style="animation-delay: 0.45s">
+                    <div class="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 mx-auto mb-2 sm:mb-3 bg-yellow-400 rounded-lg flex items-center justify-center hover:shadow-lg transition-all duration-300 touch-manipulation">
+                        <i class="fab fa-js-square text-base sm:text-lg lg:text-xl xl:text-2xl text-white"></i>
                     </div>
-                    <span class="text-sm text-gray-600 font-medium">JavaScript</span>
+                    <span class="text-xs sm:text-sm text-gray-600 font-medium block">JavaScript</span>
                 </div>
-                <div class="skill-icon text-center scale-in" style="animation-delay: 0.5s">
-                    <div class="w-16 h-16 mx-auto mb-3 bg-red-600 rounded-lg flex items-center justify-center hover:shadow-lg transition-all duration-300">
-                        <i class="fas fa-cogs text-2xl text-white"></i>
+                <div class="skill-icon text-center scale-in w-full" style="animation-delay: 0.5s">
+                    <div class="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 mx-auto mb-2 sm:mb-3 bg-red-600 rounded-lg flex items-center justify-center hover:shadow-lg transition-all duration-300 touch-manipulation">
+                        <i class="fas fa-cogs text-base sm:text-lg lg:text-xl xl:text-2xl text-white"></i>
                     </div>
-                    <span class="text-sm text-gray-600 font-medium">Ansible</span>
+                    <span class="text-xs sm:text-sm text-gray-600 font-medium block">Ansible</span>
                 </div>
-                <div class="skill-icon text-center scale-in" style="animation-delay: 0.55s">
-                    <div class="w-16 h-16 mx-auto mb-3 bg-purple-600 rounded-lg flex items-center justify-center hover:shadow-lg transition-all duration-300">
-                        <i class="fas fa-code text-2xl text-white"></i>
+                <div class="skill-icon text-center scale-in w-full" style="animation-delay: 0.55s">
+                    <div class="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 mx-auto mb-2 sm:mb-3 bg-purple-600 rounded-lg flex items-center justify-center hover:shadow-lg transition-all duration-300 touch-manipulation">
+                        <i class="fas fa-code text-base sm:text-lg lg:text-xl xl:text-2xl text-white"></i>
                     </div>
-                    <span class="text-sm text-gray-600 font-medium">Terraform</span>
+                    <span class="text-xs sm:text-sm text-gray-600 font-medium block">Terraform</span>
                 </div>
-                <div class="skill-icon text-center scale-in" style="animation-delay: 0.6s">
-                    <div class="w-16 h-16 mx-auto mb-3 bg-blue-600 rounded-lg flex items-center justify-center hover:shadow-lg transition-all duration-300">
-                        <i class="fab fa-google text-2xl text-white"></i>
+                <div class="skill-icon text-center scale-in w-full" style="animation-delay: 0.6s">
+                    <div class="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 mx-auto mb-2 sm:mb-3 bg-blue-600 rounded-lg flex items-center justify-center hover:shadow-lg transition-all duration-300 touch-manipulation">
+                        <i class="fab fa-google text-base sm:text-lg lg:text-xl xl:text-2xl text-white"></i>
                     </div>
-                    <span class="text-sm text-gray-600 font-medium">GCP</span>
+                    <span class="text-xs sm:text-sm text-gray-600 font-medium block">GCP</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="projects" class="py-20 px-4">
+    <!-- Projects Section -->
+    <section id="projects" class="py-12 sm:py-16 lg:py-20 px-4">
         <div class="max-w-7xl mx-auto">
-            <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 text-navy fade-in">Projects</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch justify-items-center">
-                <div class="project-card bg-white rounded-xl p-6 hover-lift fade-in-left flex flex-col h-full max-w-sm w-full" style="animation-delay: 0.1s">
-                    <h3 class="text-xl font-bold mb-3 text-navy">E-commerce Deployment (Kubernetes Strategies)</h3>
-                    <p class="text-gray-600 mb-4 flex-grow">Deployed an e-commerce app with Kubernetes strategies: Rollback, Recreate, and Canary (traffic splits 80/20 → 50/50 → 20/80 → 100/0).</p>
+            <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-12 sm:mb-16 text-navy fade-in">Projects</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-8 items-stretch">
+                <!-- E-commerce Deployment (Kubernetes Strategies) -->
+                <div class="project-card bg-white rounded-xl p-5 sm:p-6 hover-lift fade-in-left flex flex-col h-full w-full touch-manipulation" style="animation-delay: 0.1s">
+                    <h3 class="text-lg sm:text-xl font-bold mb-3 text-navy leading-tight">E-commerce Deployment (Kubernetes Strategies)</h3>
+                    <p class="text-sm sm:text-base text-gray-600 mb-4 flex-grow leading-relaxed">Deployed an e-commerce app with Kubernetes strategies: Rollback, Recreate, and Canary (traffic splits 80/20 → 50/50 → 20/80 → 100/0).</p>
                     <div class="flex flex-wrap gap-2 mb-4">
-                        <span class="px-3 py-1 bg-navy text-white rounded-full text-sm">Kubernetes</span>
-                        <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">Docker</span>
-                        <span class="px-3 py-1 bg-orange-100 text-orange-800 rounded-full text-sm">AWS</span>
+                        <span class="px-3 py-1 bg-navy text-white rounded-full text-xs sm:text-sm">Kubernetes</span>
+                        <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-xs sm:text-sm">Docker</span>
+                        <span class="px-3 py-1 bg-orange-100 text-orange-800 rounded-full text-xs sm:text-sm">AWS</span>
                     </div>
                     <div class="flex gap-3 mt-auto">
-                        <a href="https://sharesampatti.hashnode.dev/kubernetes-deployment-strategy" target="_blank" class="text-navy hover:text-navy-dark transition-colors">
+                        <a href="https://sharesampatti.hashnode.dev/kubernetes-deployment-strategy" target="_blank" class="text-navy hover:text-navy-dark transition-colors text-sm touch-manipulation">
                             <i class="fas fa-blog mr-1"></i>Blog
                         </a>
                     </div>
                 </div>
 
-                <div class="project-card bg-white rounded-xl p-6 hover-lift fade-in-right flex flex-col h-full max-w-sm w-full" style="animation-delay: 0.2s">
-                    <h3 class="text-xl font-bold mb-3 text-navy">2048 Game Deployment</h3>
-                    <p class="text-gray-600 mb-4 flex-grow">Containerized the classic 2048 game with Docker and hosted it on AWS Elastic Beanstalk for scalable gaming experience.</p>
+                <!-- 2048 Game Deployment -->
+                <div class="project-card bg-white rounded-xl p-5 sm:p-6 hover-lift fade-in-right flex flex-col h-full w-full touch-manipulation" style="animation-delay: 0.2s">
+                    <h3 class="text-lg sm:text-xl font-bold mb-3 text-navy">2048 Game Deployment</h3>
+                    <p class="text-sm sm:text-base text-gray-600 mb-4 flex-grow">Containerized the classic 2048 game with Docker and hosted it on AWS Elastic Beanstalk for scalable gaming experience.</p>
                     <div class="flex flex-wrap gap-2 mb-4">
-                        <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">Docker</span>
-                        <span class="px-3 py-1 bg-orange-100 text-orange-800 rounded-full text-sm">AWS Beanstalk</span>
+                        <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-xs sm:text-sm">Docker</span>
+                        <span class="px-3 py-1 bg-orange-100 text-orange-800 rounded-full text-xs sm:text-sm">AWS Beanstalk</span>
                     </div>
                     <div class="flex gap-3 mt-auto">
-                        <a href="https://github.com/12taran/2048-game-.git" target="_blank" class="text-navy hover:text-navy-dark transition-colors">
+                        <a href="https://github.com/12taran/2048-game-.git" target="_blank" class="text-navy hover:text-navy-dark transition-colors text-sm touch-manipulation">
                             <i class="fab fa-github mr-1"></i>GitHub
                         </a>
                     </div>
                 </div>
 
-                <div class="project-card bg-white rounded-xl p-6 hover-lift slide-up flex flex-col h-full max-w-sm w-full" style="animation-delay: 0.3s">
-                    <h3 class="text-xl font-bold mb-3 text-navy">Microservices: Video to Audio Converter</h3>
-                    <p class="text-gray-600 mb-4 flex-grow">Deployed a microservices-based app with scaling and descaling (scaled auth, descaled notification) using Helm on Kubernetes.</p>
+                <!-- Microservices: Video to Audio Converter -->
+                <div class="project-card bg-white rounded-xl p-5 sm:p-6 hover-lift slide-up flex flex-col h-full w-full" style="animation-delay: 0.3s">
+                    <h3 class="text-lg sm:text-xl font-bold mb-3 text-navy">Microservices: Video to Audio Converter</h3>
+                    <p class="text-sm sm:text-base text-gray-600 mb-4 flex-grow">Deployed a microservices-based app with scaling and descaling (scaled auth, descaled notification) using Helm on Kubernetes.</p>
                     <div class="flex flex-wrap gap-2 mb-4">
-                        <span class="px-3 py-1 bg-navy text-white rounded-full text-sm">Kubernetes</span>
-                        <span class="px-3 py-1 bg-red-100 text-red-800 rounded-full text-sm">Helm</span>
-                        <span class="px-3 py-1 bg-yellow-100 text-yellow-800 rounded-full text-sm">Python</span>
-                        <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">Docker</span>
+                        <span class="px-3 py-1 bg-navy text-white rounded-full text-xs sm:text-sm">Kubernetes</span>
+                        <span class="px-3 py-1 bg-red-100 text-red-800 rounded-full text-xs sm:text-sm">Helm</span>
+                        <span class="px-3 py-1 bg-yellow-100 text-yellow-800 rounded-full text-xs sm:text-sm">Python</span>
+                        <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-xs sm:text-sm">Docker</span>
                     </div>
                     <div class="flex gap-3 mt-auto">
-                        <a href="https://github.com/12taran/microservices-python-app.git" target="_blank" class="text-navy hover:text-navy-dark transition-colors">
+                        <a href="https://github.com/12taran/microservices-python-app.git" target="_blank" class="text-navy hover:text-navy-dark transition-colors text-sm">
                             <i class="fab fa-github mr-1"></i>GitHub
                         </a>
-                        <a href="https://sharesampatti.hashnode.dev/deploying-microservices-on-kubernetes-with-helm-lessons-from-the-trenches" target="_blank" class="text-navy hover:text-navy-dark transition-colors">
+                        <a href="https://sharesampatti.hashnode.dev/deploying-microservices-on-kubernetes-with-helm-lessons-from-the-trenches" target="_blank" class="text-navy hover:text-navy-dark transition-colors text-sm">
                             <i class="fas fa-blog mr-1"></i>Blog
                         </a>
                     </div>
                 </div>
 
-                <div class="project-card bg-white rounded-xl p-6 hover-lift fade-in-left flex flex-col h-full max-w-sm w-full" style="animation-delay: 0.4s">
-                    <h3 class="text-xl font-bold mb-3 text-navy">DevSecOps Pipeline</h3>
-                    <p class="text-gray-600 mb-4 flex-grow">Built a complete DevSecOps pipeline with CI/CD, Kubernetes deployments on AWS EKS, Helm, and SNS notifications.</p>
+                <!-- DevSecOps Pipeline -->
+                <div class="project-card bg-white rounded-xl p-5 sm:p-6 hover-lift fade-in-left flex flex-col h-full w-full" style="animation-delay: 0.4s">
+                    <h3 class="text-lg sm:text-xl font-bold mb-3 text-navy">DevSecOps Pipeline</h3>
+                    <p class="text-sm sm:text-base text-gray-600 mb-4 flex-grow">Built a complete DevSecOps pipeline with CI/CD, Kubernetes deployments on AWS EKS, Helm, and SNS notifications.</p>
                     <div class="flex flex-wrap gap-2 mb-4">
-                        <span class="px-3 py-1 bg-red-100 text-red-800 rounded-full text-sm">Jenkins</span>
-                        <span class="px-3 py-1 bg-navy text-white rounded-full text-sm">Kubernetes</span>
-                        <span class="px-3 py-1 bg-red-100 text-red-800 rounded-full text-sm">Helm</span>
-                        <span class="px-3 py-1 bg-orange-100 text-orange-800 rounded-full text-sm">AWS EKS</span>
-                        <span class="px-3 py-1 bg-yellow-100 text-yellow-800 rounded-full text-sm">SNS</span>
+                        <span class="px-3 py-1 bg-red-100 text-red-800 rounded-full text-xs sm:text-sm">Jenkins</span>
+                        <span class="px-3 py-1 bg-navy text-white rounded-full text-xs sm:text-sm">Kubernetes</span>
+                        <span class="px-3 py-1 bg-red-100 text-red-800 rounded-full text-xs sm:text-sm">Helm</span>
+                        <span class="px-3 py-1 bg-orange-100 text-orange-800 rounded-full text-xs sm:text-sm">AWS EKS</span>
+                        <span class="px-3 py-1 bg-yellow-100 text-yellow-800 rounded-full text-xs sm:text-sm">SNS</span>
                     </div>
                     <div class="flex gap-3 mt-auto">
                         <span class="text-gray-500 text-sm italic">Work in Progress</span>
                     </div>
                 </div>
 
-                <div class="project-card bg-white rounded-xl p-6 hover-lift fade-in-right flex flex-col h-full max-w-sm w-full" style="animation-delay: 0.5s">
-                    <h3 class="text-xl font-bold mb-3 text-navy">Share Sampatti (Real Estate Platform)</h3>
-                    <p class="text-gray-600 mb-4 flex-grow">Fractional real estate ownership platform. Managed backend deployment, scaling, and full monitoring with Prometheus and Grafana.</p>
+                <!-- Share Sampatti (Real Estate Platform) -->
+                <div class="project-card bg-white rounded-xl p-5 sm:p-6 hover-lift fade-in-right flex flex-col h-full w-full" style="animation-delay: 0.5s">
+                    <h3 class="text-lg sm:text-xl font-bold mb-3 text-navy">Share Sampatti (Real Estate Platform)</h3>
+                    <p class="text-sm sm:text-base text-gray-600 mb-4 flex-grow">Fractional real estate ownership platform. Managed backend deployment, scaling, and full monitoring with Prometheus and Grafana.</p>
                     <div class="flex flex-wrap gap-2 mb-4">
-                        <span class="px-3 py-1 bg-orange-100 text-orange-800 rounded-full text-sm">AWS</span>
-                        <span class="px-3 py-1 bg-navy text-white rounded-full text-sm">Kubernetes</span>
-                        <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">Docker</span>
-                        <span class="px-3 py-1 bg-red-100 text-red-800 rounded-full text-sm">Prometheus</span>
-                        <span class="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-sm">Grafana</span>
+                        <span class="px-3 py-1 bg-orange-100 text-orange-800 rounded-full text-xs sm:text-sm">AWS</span>
+                        <span class="px-3 py-1 bg-navy text-white rounded-full text-xs sm:text-sm">Kubernetes</span>
+                        <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-xs sm:text-sm">Docker</span>
+                        <span class="px-3 py-1 bg-red-100 text-red-800 rounded-full text-xs sm:text-sm">Prometheus</span>
+                        <span class="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-xs sm:text-sm">Grafana</span>
                     </div>
                     <div class="flex gap-3 flex-wrap mt-auto">
-                        <a href="https://github.com/Planning-Earth-pvt-ltd/sampatti-backend.git" target="_blank" class="text-navy hover:text-navy-dark transition-colors">
+                        <a href="https://github.com/Planning-Earth-pvt-ltd/sampatti-backend.git" target="_blank" class="text-navy hover:text-navy-dark transition-colors text-sm">
                             <i class="fab fa-github mr-1"></i>GitHub
                         </a>
-                        <a href="https://sharesampatti.hashnode.dev/weekly-devops-update-automating-the-backend-stack-for-share-sampatti" target="_blank" class="text-navy hover:text-navy-dark transition-colors">
+                        <a href="https://sharesampatti.hashnode.dev/weekly-devops-update-automating-the-backend-stack-for-share-sampatti" target="_blank" class="text-navy hover:text-navy-dark transition-colors text-sm">
                             <i class="fas fa-blog mr-1"></i>DevOps Stack
                         </a>
-                        <a href="https://sharesampatti.hashnode.dev/building-a-jenkins-cicd-pipeline-with-docker-compose-sonarqube-trivy-and-monitoring-for-my-nodejs-app" target="_blank" class="text-navy hover:text-navy-dark transition-colors">
+                        <a href="https://sharesampatti.hashnode.dev/building-a-jenkins-cicd-pipeline-with-docker-compose-sonarqube-trivy-and-monitoring-for-my-nodejs-app" target="_blank" class="text-navy hover:text-navy-dark transition-colors text-sm">
                             <i class="fas fa-blog mr-1"></i>CI/CD Pipeline
                         </a>
                     </div>
                 </div>
 
-                <div class="project-card bg-white rounded-xl p-6 hover-lift slide-up flex flex-col h-full max-w-sm w-full" style="animation-delay: 0.6s">
-                    <h3 class="text-xl font-bold mb-3 text-navy">NFC Business Card (Company Project)</h3>
-                    <p class="text-gray-600 mb-4 flex-grow">NFC-powered digital business card solution. On tap, it shares contact details and portfolio instantly. Deployed and scaled backend services.</p>
+                <!-- NFC Business Card -->
+                <div class="project-card bg-white rounded-xl p-5 sm:p-6 hover-lift slide-up flex flex-col h-full w-full" style="animation-delay: 0.6s">
+                    <h3 class="text-lg sm:text-xl font-bold mb-3 text-navy">NFC Business Card (Company Project)</h3>
+                    <p class="text-sm sm:text-base text-gray-600 mb-4 flex-grow">NFC-powered digital business card solution. On tap, it shares contact details and portfolio instantly. Deployed and scaled backend services.</p>
                     <div class="flex flex-wrap gap-2 mb-4">
-                        <span class="px-3 py-1 bg-orange-100 text-orange-800 rounded-full text-sm">AWS</span>
-                        <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">Docker</span>
-                        <span class="px-3 py-1 bg-navy text-white rounded-full text-sm">Kubernetes</span>
+                        <span class="px-3 py-1 bg-orange-100 text-orange-800 rounded-full text-xs sm:text-sm">AWS</span>
+                        <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-xs sm:text-sm">Docker</span>
+                        <span class="px-3 py-1 bg-navy text-white rounded-full text-xs sm:text-sm">Kubernetes</span>
                     </div>
                     <div class="flex gap-3 mt-auto">
-                        <a href="https://github.com/Planning-Earth-pvt-ltd/NFC-CARD.git" target="_blank" class="text-navy hover:text-navy-dark transition-colors">
+                        <a href="https://github.com/Planning-Earth-pvt-ltd/NFC-CARD.git" target="_blank" class="text-navy hover:text-navy-dark transition-colors text-sm">
                             <i class="fab fa-github mr-1"></i>GitHub
                         </a>
                     </div>
                 </div>
 
-                <div class="project-card bg-white rounded-xl p-6 hover-lift rotate-in flex flex-col h-full max-w-sm w-full" style="animation-delay: 0.7s">
-                    <h3 class="text-xl font-bold mb-3 text-navy">MCP Server & CRM (Open Source)</h3>
-                    <p class="text-gray-600 mb-4 flex-grow">Set up an MCP server and developed a CRM system with functionalities for expense/attendance tracking, leave management, and task management.</p>
+                <!-- MCP Server & CRM -->
+                <div class="project-card bg-white rounded-xl p-5 sm:p-6 hover-lift rotate-in flex flex-col h-full w-full" style="animation-delay: 0.7s">
+                    <h3 class="text-lg sm:text-xl font-bold mb-3 text-navy">MCP Server & CRM (Open Source)</h3>
+                    <p class="text-sm sm:text-base text-gray-600 mb-4 flex-grow">Set up an MCP server and developed a CRM system with functionalities for expense/attendance tracking, leave management, and task management.</p>
                     <div class="flex flex-wrap gap-2 mb-4">
-                        <span class="px-3 py-1 bg-navy text-white rounded-full text-sm">Kubernetes</span>
-                        <span class="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-sm">MCP</span>
-                        <span class="px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm">Node.js</span>
-                        <span class="px-3 py-1 bg-yellow-100 text-yellow-800 rounded-full text-sm">MongoDB</span>
-                        <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">Docker</span>
+                        <span class="px-3 py-1 bg-navy text-white rounded-full text-xs sm:text-sm">Kubernetes</span>
+                        <span class="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-xs sm:text-sm">MCP</span>
+                        <span class="px-3 py-1 bg-green-100 text-green-800 rounded-full text-xs sm:text-sm">Node.js</span>
+                        <span class="px-3 py-1 bg-yellow-100 text-yellow-800 rounded-full text-xs sm:text-sm">MongoDB</span>
+                        <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-xs sm:text-sm">Docker</span>
                     </div>
                     <div class="flex gap-3 mt-auto">
-                        <a href="https://github.com/12taran/CRM-.git" target="_blank" class="text-navy hover:text-navy-dark transition-colors">
+                        <a href="https://github.com/12taran/CRM-.git" target="_blank" class="text-navy hover:text-navy-dark transition-colors text-sm">
                             <i class="fab fa-github mr-1"></i>GitHub
                         </a>
                         <span class="text-green-600 text-sm font-medium">
@@ -510,65 +840,71 @@
         </div>
     </section>
 
-    <section id="experience" class="py-20 px-4 bg-gray-50">
+    <!-- Experience Section -->
+    <section id="experience" class="py-12 sm:py-16 lg:py-20 px-4 bg-gray-50">
         <div class="max-w-4xl mx-auto">
-            <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 text-navy fade-in">Experience</h2>
+            <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-12 sm:mb-16 text-navy fade-in">Experience</h2>
             <div class="relative">
-                <div class="absolute left-8 top-0 bottom-0 w-1 timeline-line rounded-full"></div>
+                <div class="absolute left-6 sm:left-8 top-0 bottom-0 w-1 timeline-line rounded-full"></div>
                 
-                <div class="mb-12 fade-in-left">
-                    <div class="flex items-center mb-4">
-                        <div class="w-6 h-6 bg-navy rounded-full mr-6 relative z-10 border-4 border-white shadow-lg scale-in visible" style="animation-delay: 0.2s"></div>
-                        <div class="text-sm text-navy font-semibold">2025 – Present</div>
+                <div class="mb-8 sm:mb-12 fade-in-left">
+                    <div class="flex items-center mb-3 sm:mb-4">
+                        <div class="w-5 h-5 sm:w-6 sm:h-6 bg-navy rounded-full mr-4 sm:mr-6 relative z-10 border-3 sm:border-4 border-white shadow-lg scale-in visible" style="animation-delay: 0.2s"></div>
+                        <div class="text-xs sm:text-sm text-navy font-semibold">2025 – Present</div>
                     </div>
-                    <div class="ml-12">
-                        <h3 class="text-2xl font-bold text-navy mb-2">DevOps Engineer</h3>
-                        <p class="text-xl text-gray-600 mb-3">Planning Earth Pvt Ltd</p>
-                        <p class="text-gray-600">Leading cloud infrastructure automation and deployment strategies for scalable applications with focus on reliability and security.</p>
+                    <div class="ml-9 sm:ml-12">
+                        <h3 class="text-xl sm:text-2xl font-bold text-navy mb-2">DevOps Engineer</h3>
+                        <p class="text-lg sm:text-xl text-gray-600 mb-2 sm:mb-3">Planning Earth Pvt Ltd</p>
+                        <p class="text-sm sm:text-base text-gray-600 leading-relaxed">Leading cloud infrastructure automation and deployment strategies for scalable applications with focus on reliability and security.</p>
                     </div>
                 </div>
 
-                <div class="mb-12 fade-in-right">
-                    <div class="flex items-center mb-4">
-                        <div class="w-6 h-6 bg-navy rounded-full mr-6 relative z-10 border-4 border-white shadow-lg scale-in visible" style="animation-delay: 0.4s"></div>
-                        <div class="text-sm text-navy font-semibold">2024 – 2025</div>
+                <div class="mb-8 sm:mb-12 fade-in-right">
+                    <div class="flex items-center mb-3 sm:mb-4">
+                        <div class="w-5 h-5 sm:w-6 sm:h-6 bg-navy rounded-full mr-4 sm:mr-6 relative z-10 border-3 sm:border-4 border-white shadow-lg scale-in visible" style="animation-delay: 0.4s"></div>
+                        <div class="text-xs sm:text-sm text-navy font-semibold">2024 – 2025</div>
                     </div>
-                    <div class="ml-12">
-                        <h3 class="text-2xl font-bold text-navy mb-2">Cloud Development Associate</h3>
-                        <p class="text-xl text-gray-600 mb-3">Neonex Steam</p>
-                        <p class="text-gray-600">Developed and maintained cloud-native applications with emphasis on automation, scalability, and performance optimization.</p>
+                    <div class="ml-9 sm:ml-12">
+                        <h3 class="text-xl sm:text-2xl font-bold text-navy mb-2">Cloud Development Associate</h3>
+                        <p class="text-lg sm:text-xl text-gray-600 mb-2 sm:mb-3">Neonex Steam</p>
+                        <p class="text-sm sm:text-base text-gray-600 leading-relaxed">Developed and maintained cloud-native applications with emphasis on automation, scalability, and performance optimization.</p>
                     </div>
                 </div>
 
                 <div class="fade-in-left">
-                    <div class="flex items-center mb-4">
-                        <div class="w-6 h-6 bg-navy rounded-full mr-6 relative z-10 border-4 border-white shadow-lg scale-in visible" style="animation-delay: 0.6s"></div>
-                        <div class="text-sm text-navy font-semibold">2024</div>
+                    <div class="flex items-center mb-3 sm:mb-4">
+                        <div class="w-5 h-5 sm:w-6 sm:h-6 bg-navy rounded-full mr-4 sm:mr-6 relative z-10 border-3 sm:border-4 border-white shadow-lg scale-in visible" style="animation-delay: 0.6s"></div>
+                        <div class="text-xs sm:text-sm text-navy font-semibold">2024</div>
                     </div>
-                    <div class="ml-12">
-                        <h3 class="text-2xl font-bold text-navy mb-2">Cloud Engineer Intern</h3>
-                        <p class="text-xl text-gray-600 mb-3">Techversys Solutions</p>
-                        <p class="text-gray-600">Gained hands-on experience with AWS services, containerization technologies, and CI/CD pipeline implementation.</p>
+                    <div class="ml-9 sm:ml-12">
+                        <h3 class="text-xl sm:text-2xl font-bold text-navy mb-2">Cloud Engineer Intern</h3>
+                        <p class="text-lg sm:text-xl text-gray-600 mb-2 sm:mb-3">Techversys Solutions</p>
+                        <p class="text-sm sm:text-base text-gray-600 leading-relaxed">Gained hands-on experience with AWS services, containerization technologies, and CI/CD pipeline implementation.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="blogs" class="py-20 px-4">
+    <!-- Blogs Section -->
+    <section id="blogs" class="py-12 sm:py-16 lg:py-20 px-4">
         <div class="max-w-6xl mx-auto">
-            <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 text-navy fade-in">Latest Blogs</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 items-stretch justify-items-center">
+            <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-12 sm:mb-16 text-navy fade-in">Latest Blogs</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 items-stretch justify-items-center">
                 <div class="bg-white rounded-xl overflow-hidden shadow-lg hover-lift scale-in flex flex-col h-full max-w-sm w-full" style="animation-delay: 0.1s">
                     <div class="h-48 bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center relative overflow-hidden">
+                        <!-- Kubernetes & Helm Illustration -->
                         <svg width="200" height="120" viewBox="0 0 200 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Kubernetes wheel -->
                             <circle cx="60" cy="60" r="25" fill="white" opacity="0.9"/>
                             <circle cx="60" cy="60" r="20" fill="none" stroke="#326CE5" stroke-width="2"/>
                             <path d="M60 40 L70 55 L60 70 L50 55 Z" fill="#326CE5"/>
                             <circle cx="60" cy="60" r="3" fill="#326CE5"/>
+                            <!-- Helm -->
                             <circle cx="140" cy="60" r="25" fill="white" opacity="0.9"/>
                             <path d="M125 50 Q140 45 155 50 Q150 60 140 65 Q130 60 125 50" fill="#0F1689"/>
                             <path d="M135 55 L145 55 M130 60 L150 60 M135 65 L145 65" stroke="#0F1689" stroke-width="1.5"/>
+                            <!-- Connection lines -->
                             <path d="M85 60 L115 60" stroke="white" stroke-width="2" opacity="0.7"/>
                             <circle cx="100" cy="60" r="2" fill="white"/>
                         </svg>
@@ -584,14 +920,18 @@
 
                 <div class="bg-white rounded-xl overflow-hidden shadow-lg hover-lift slide-up flex flex-col h-full max-w-sm w-full" style="animation-delay: 0.2s">
                     <div class="h-48 bg-gradient-to-br from-green-500 to-blue-600 flex items-center justify-center relative overflow-hidden">
+                        <!-- Monolithic vs Microservices Illustration -->
                         <svg width="200" height="120" viewBox="0 0 200 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Monolithic (left side) -->
                             <rect x="20" y="30" width="60" height="60" rx="8" fill="white" opacity="0.9"/>
                             <text x="50" y="50" text-anchor="middle" fill="#059669" font-size="8" font-weight="bold">MONO</text>
                             <text x="50" y="62" text-anchor="middle" fill="#059669" font-size="8" font-weight="bold">LITH</text>
                             <text x="50" y="74" text-anchor="middle" fill="#059669" font-size="8" font-weight="bold">APP</text>
                             
+                            <!-- VS text -->
                             <text x="100" y="65" text-anchor="middle" fill="white" font-size="12" font-weight="bold">VS</text>
                             
+                            <!-- Microservices (right side) -->
                             <rect x="120" y="20" width="25" height="25" rx="4" fill="white" opacity="0.9"/>
                             <text x="132.5" y="35" text-anchor="middle" fill="#2563EB" font-size="6" font-weight="bold">API</text>
                             
@@ -604,6 +944,7 @@
                             <rect x="155" y="55" width="25" height="25" rx="4" fill="white" opacity="0.9"/>
                             <text x="167.5" y="70" text-anchor="middle" fill="#2563EB" font-size="6" font-weight="bold">UI</text>
                             
+                            <!-- Connection lines -->
                             <path d="M145 32.5 L155 32.5 M132.5 45 L132.5 55 M167.5 45 L167.5 55 M145 67.5 L155 67.5" stroke="white" stroke-width="1" opacity="0.7"/>
                         </svg>
                     </div>
@@ -618,7 +959,9 @@
 
                 <div class="bg-white rounded-xl overflow-hidden shadow-lg hover-lift rotate-in flex flex-col h-full max-w-sm w-full" style="animation-delay: 0.3s">
                     <div class="h-48 bg-gradient-to-br from-purple-600 to-pink-600 flex items-center justify-center relative overflow-hidden">
+                        <!-- MCP Server & Speed Illustration -->
                         <svg width="200" height="120" viewBox="0 0 200 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Server icon -->
                             <rect x="30" y="40" width="50" height="40" rx="6" fill="white" opacity="0.9"/>
                             <rect x="35" y="45" width="40" height="6" rx="2" fill="#7C3AED"/>
                             <rect x="35" y="55" width="40" height="6" rx="2" fill="#7C3AED"/>
@@ -627,9 +970,11 @@
                             <circle cx="72" cy="58" r="2" fill="#10B981"/>
                             <circle cx="72" cy="68" r="2" fill="#10B981"/>
                             
+                            <!-- Speed lines and arrow -->
                             <path d="M90 50 L120 50 M90 55 L115 55 M90 60 L125 60 M90 65 L110 65" stroke="white" stroke-width="2" opacity="0.8"/>
                             <path d="M120 45 L135 60 L120 75 Z" fill="white" opacity="0.9"/>
                             
+                            <!-- Clock/Timer -->
                             <circle cx="160" cy="60" r="20" fill="white" opacity="0.9"/>
                             <circle cx="160" cy="60" r="15" fill="none" stroke="#EC4899" stroke-width="2"/>
                             <path d="M160 50 L160 60 L170 65" stroke="#EC4899" stroke-width="2" stroke-linecap="round"/>
@@ -647,7 +992,9 @@
 
                 <div class="bg-white rounded-xl overflow-hidden shadow-lg hover-lift fade-in-right flex flex-col h-full max-w-sm w-full" style="animation-delay: 0.4s">
                     <div class="h-48 bg-gradient-to-br from-orange-500 to-red-600 flex items-center justify-center relative overflow-hidden">
+                        <!-- Kubernetes Deployment Strategy Illustration -->
                         <svg width="200" height="120" viewBox="0 0 200 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Deployment stages -->
                             <rect x="20" y="30" width="30" height="20" rx="4" fill="white" opacity="0.9"/>
                             <text x="35" y="43" text-anchor="middle" fill="#EA580C" font-size="6" font-weight="bold">V1</text>
                             <text x="35" y="55" text-anchor="middle" fill="#EA580C" font-size="5">80%</text>
@@ -664,6 +1011,7 @@
                             <text x="155" y="43" text-anchor="middle" fill="#DC2626" font-size="6" font-weight="bold">V2</text>
                             <text x="155" y="55" text-anchor="middle" fill="#DC2626" font-size="5">100%</text>
                             
+                            <!-- New version bars -->
                             <rect x="60" y="60" width="30" height="20" rx="4" fill="white" opacity="0.7"/>
                             <text x="75" y="73" text-anchor="middle" fill="#DC2626" font-size="6" font-weight="bold">V2</text>
                             <text x="75" y="85" text-anchor="middle" fill="#DC2626" font-size="5">50%</text>
@@ -672,9 +1020,11 @@
                             <text x="115" y="73" text-anchor="middle" fill="#DC2626" font-size="6" font-weight="bold">V2</text>
                             <text x="115" y="85" text-anchor="middle" fill="#DC2626" font-size="5">80%</text>
                             
+                            <!-- Arrows -->
                             <path d="M50 40 L60 40 M90 40 L100 40 M130 40 L140 40" stroke="white" stroke-width="2" opacity="0.8"/>
                             <path d="M48 37 L52 40 L48 43 M88 37 L92 40 L88 43 M128 37 L132 40 L128 43" fill="white" opacity="0.8"/>
                             
+                            <!-- Canary label -->
                             <text x="100" y="15" text-anchor="middle" fill="white" font-size="10" font-weight="bold">CANARY</text>
                         </svg>
                     </div>
@@ -688,6 +1038,7 @@
                 </div>
             </div>
             
+            <!-- Follow on Hashnode -->
             <div class="mt-16 text-center fade-in">
                 <div class="inline-flex items-center gap-3 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 hover-lift">
                     <svg width="24" height="24" viewBox="0 0 337 337" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -702,45 +1053,47 @@
         </div>
     </section>
 
-    <section id="contact" class="py-20 px-4 bg-gray-50">
+    <!-- Contact Section -->
+    <section id="contact" class="py-12 sm:py-16 lg:py-20 px-4 bg-gray-50">
         <div class="max-w-4xl mx-auto">
-            <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 text-navy fade-in">Get In Touch</h2>
-            <div class="grid md:grid-cols-2 gap-12">
+            <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-12 sm:mb-16 text-navy fade-in">Get In Touch</h2>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
                 <div class="fade-in-left">
-                    <h3 class="text-2xl font-bold mb-6 text-navy">Let's Connect</h3>
-                    <p class="text-gray-600 mb-8">I'm always interested in discussing new opportunities, innovative projects, and collaborations in the DevOps and cloud automation space.</p>
+                    <h3 class="text-xl sm:text-2xl font-bold mb-4 sm:mb-6 text-navy">Let's Connect</h3>
+                    <p class="text-sm sm:text-base text-gray-600 mb-6 sm:mb-8 leading-relaxed">I'm always interested in discussing new opportunities, innovative projects, and collaborations in the DevOps and cloud automation space.</p>
                     
                     <div class="space-y-4">
                         <div class="flex items-center slide-up">
-                            <i class="fas fa-envelope text-navy w-6"></i>
-                            <span class="ml-3 text-gray-700">taranpreetbatra1@gmail.com</span>
+                            <i class="fas fa-envelope text-navy w-6 text-base"></i>
+                            <span class="ml-3 text-gray-700 text-sm sm:text-base break-all">taranpreetbatra1@gmail.com</span>
                         </div>
                         <div class="flex items-center slide-up" style="animation-delay: 0.1s">
-                            <i class="fas fa-map-marker-alt text-navy w-6"></i>
-                            <span class="ml-3 text-gray-700">Available for Remote Work</span>
+                            <i class="fas fa-map-marker-alt text-navy w-6 text-base"></i>
+                            <span class="ml-3 text-gray-700 text-sm sm:text-base">Available for Remote Work</span>
                         </div>
                     </div>
 
+                    <!-- Social Links -->
                     <div class="mt-8">
-                        <h4 class="text-lg font-semibold mb-4 text-navy">Connect With Me</h4>
-                        <div class="flex space-x-4">
-                            <a href="https://github.com/12taran" target="_blank" class="w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center hover-lift transition-all duration-300 hover:bg-gray-700 scale-in" style="animation-delay: 0.2s">
-                                <i class="fab fa-github text-white"></i>
+                        <h4 class="text-base sm:text-lg font-semibold mb-4 text-navy">Connect With Me</h4>
+                        <div class="flex flex-wrap gap-3">
+                            <a href="https://github.com/12taran" target="_blank" class="w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center hover-lift transition-all duration-300 hover:bg-gray-700 scale-in touch-manipulation" style="animation-delay: 0.2s">
+                                <i class="fab fa-github text-white text-base"></i>
                             </a>
-                            <a href="https://www.linkedin.com/in/taranpreet-batra/" target="_blank" class="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center hover-lift transition-all duration-300 hover:bg-blue-700 scale-in" style="animation-delay: 0.3s">
-                                <i class="fab fa-linkedin text-white"></i>
+                            <a href="https://www.linkedin.com/in/taranpreet-batra/" target="_blank" class="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center hover-lift transition-all duration-300 hover:bg-blue-700 scale-in touch-manipulation" style="animation-delay: 0.3s">
+                                <i class="fab fa-linkedin text-white text-base"></i>
                             </a>
-                            <a href="https://x.com/taran43604" target="_blank" class="w-12 h-12 bg-gray-900 rounded-full flex items-center justify-center hover-lift transition-all duration-300 hover:bg-black scale-in" style="animation-delay: 0.4s">
-                                <i class="fab fa-twitter text-white"></i>
+                            <a href="https://x.com/taran43604" target="_blank" class="w-12 h-12 bg-gray-900 rounded-full flex items-center justify-center hover-lift transition-all duration-300 hover:bg-black scale-in touch-manipulation" style="animation-delay: 0.4s">
+                                <i class="fab fa-twitter text-white text-base"></i>
                             </a>
-                            <a href="https://hashnode.com/@TaranpreetS" target="_blank" class="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center hover-lift transition-all duration-300 hover:bg-blue-700 scale-in" style="animation-delay: 0.5s">
-                                <svg width="20" height="20" viewBox="0 0 337 337" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <a href="https://hashnode.com/@TaranpreetS" target="_blank" class="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center hover-lift transition-all duration-300 hover:bg-blue-700 scale-in touch-manipulation" style="animation-delay: 0.5s">
+                                <svg width="18" height="18" viewBox="0 0 337 337" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M23 168.5C23 75.5939 75.5939 23 168.5 23C261.406 23 314 75.5939 314 168.5C314 261.406 261.406 314 168.5 314C75.5939 314 23 261.406 23 168.5Z" fill="white"/>
                                     <path d="M168.5 86C198.928 86 223.5 110.572 223.5 141C223.5 171.428 198.928 196 168.5 196C138.072 196 113.5 171.428 113.5 141C113.5 110.572 138.072 86 168.5 86Z" fill="#2962FF"/>
                                 </svg>
                             </a>
-                            <a href="mailto:taranpreetbatra1@gmail.com" class="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center hover-lift transition-all duration-300 hover:bg-red-700 scale-in" style="animation-delay: 0.6s">
-                                <i class="fas fa-envelope text-white"></i>
+                            <a href="mailto:taranpreetbatra1@gmail.com" class="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center hover-lift transition-all duration-300 hover:bg-red-700 scale-in touch-manipulation" style="animation-delay: 0.6s">
+                                <i class="fas fa-envelope text-white text-base"></i>
                             </a>
                         </div>
                     </div>
@@ -749,15 +1102,15 @@
                 <div class="fade-in-right">
                     <form class="space-y-6" id="contactForm">
                         <div class="slide-up" style="animation-delay: 0.1s">
-                            <input type="text" id="userName" placeholder="Your Name" class="w-full px-4 py-3 bg-white border-2 border-gray-300 rounded-lg focus:outline-none input-focus transition-all duration-300">
+                            <input type="text" id="userName" placeholder="Your Name" class="w-full px-4 py-4 bg-white border-2 border-gray-300 rounded-lg focus:outline-none input-focus transition-all duration-300 text-base touch-manipulation">
                         </div>
                         <div class="slide-up" style="animation-delay: 0.2s">
-                            <input type="email" id="userEmail" placeholder="Your Email" class="w-full px-4 py-3 bg-white border-2 border-gray-300 rounded-lg focus:outline-none input-focus transition-all duration-300">
+                            <input type="email" id="userEmail" placeholder="Your Email" class="w-full px-4 py-4 bg-white border-2 border-gray-300 rounded-lg focus:outline-none input-focus transition-all duration-300 text-base touch-manipulation">
                         </div>
                         <div class="slide-up" style="animation-delay: 0.3s">
-                            <textarea rows="5" id="userMessage" placeholder="Your Message" class="w-full px-4 py-3 bg-white border-2 border-gray-300 rounded-lg focus:outline-none input-focus transition-all duration-300 resize-none"></textarea>
+                            <textarea rows="5" id="userMessage" placeholder="Your Message" class="w-full px-4 py-4 bg-white border-2 border-gray-300 rounded-lg focus:outline-none input-focus transition-all duration-300 resize-none text-base touch-manipulation"></textarea>
                         </div>
-                        <button type="submit" class="w-full btn-navy px-6 py-3 rounded-lg font-semibold scale-in" style="animation-delay: 0.4s">
+                        <button type="submit" class="w-full btn-navy px-6 py-4 rounded-lg font-semibold scale-in text-base touch-manipulation" style="animation-delay: 0.4s">
                             Send Message
                         </button>
                     </form>
@@ -766,15 +1119,18 @@
         </div>
     </section>
 
+    <!-- Footer -->
     <footer class="bg-navy text-white">
         <div class="max-w-6xl mx-auto px-4 py-8">
             <div class="flex flex-col md:flex-row justify-between items-center">
+                <!-- Copyright -->
                 <div class="text-center md:text-left mb-6 md:mb-0">
                     <p class="text-gray-300 text-sm">
                         © 2025 Built with ❤️ by Taranpreet
                     </p>
                 </div>
 
+                <!-- Social Links -->
                 <div class="text-center md:text-right">
                     <div class="flex justify-center md:justify-end space-x-4">
                         <a href="https://github.com/12taran" target="_blank" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-all duration-300 hover-lift">
@@ -856,44 +1212,290 @@
             observer.observe(el);
         });
 
+        // Typewriter Effect for Hero Role
+        const roles = [
+            'DevOps Engineer',
+            'Cloud Architect', 
+            'Kubernetes Expert',
+            'AWS Specialist',
+            'Automation Lover',
+            'CI/CD Enthusiast'
+        ];
+        
+        let currentRoleIndex = 0;
+        let currentCharIndex = 0;
+        let isDeleting = false;
+        
+        function typewriterEffect() {
+            const typewriterElement = document.querySelector('.typewriter-text');
+            if (!typewriterElement) return;
+            
+            const currentRole = roles[currentRoleIndex];
+            
+            if (isDeleting) {
+                typewriterElement.textContent = currentRole.substring(0, currentCharIndex - 1);
+                currentCharIndex--;
+            } else {
+                typewriterElement.textContent = currentRole.substring(0, currentCharIndex + 1);
+                currentCharIndex++;
+            }
+            
+            let typeSpeed = isDeleting ? 50 : 100;
+            
+            if (!isDeleting && currentCharIndex === currentRole.length) {
+                typeSpeed = 2000; // Pause at end
+                isDeleting = true;
+            } else if (isDeleting && currentCharIndex === 0) {
+                isDeleting = false;
+                currentRoleIndex = (currentRoleIndex + 1) % roles.length;
+                typeSpeed = 500; // Pause before next word
+            }
+            
+            setTimeout(typewriterEffect, typeSpeed);
+        }
+        
+        // Start typewriter effect after page load
+        setTimeout(typewriterEffect, 2000);
+
         // Hero buttons functionality
         document.querySelectorAll('button').forEach(button => {
             button.addEventListener('click', (e) => {
-                if (e.target.textContent.includes('View My Work')) {
+                if (e.target.textContent.includes('View My Work') || e.target.closest('button').textContent.includes('View My Work')) {
                     document.querySelector('#projects').scrollIntoView({ behavior: 'smooth' });
-                } else if (e.target.textContent.includes('Contact Me')) {
+                } else if (e.target.textContent.includes('Let\'s Connect') || e.target.closest('button').textContent.includes('Let\'s Connect')) {
                     document.querySelector('#contact').scrollIntoView({ behavior: 'smooth' });
                 }
             });
         });
 
-        // Form submission - Opens email client with pre-filled content
-        document.getElementById('contactForm').addEventListener('submit', (e) => {
-            e.preventDefault();
-            
-            const name = document.getElementById('userName').value;
-            const email = document.getElementById('userEmail').value;
-            const message = document.getElementById('userMessage').value;
-            
-            // Create email content
-            const subject = `Portfolio Contact from ${name || 'Website Visitor'}`;
-            const body = `Hi Taranpreet,
-
-${message || 'No message provided'}
-
-Best regards,
-${name || 'Anonymous'}
-${email ? `Email: ${email}` : ''}`;
-            
-            // Create mailto link
-            const mailtoLink = `mailto:taranpreetbatra1@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-            
-            // Open email client
-            window.location.href = mailtoLink;
-            
-            // Show confirmation
-            alert('Opening your email client! The message will be pre-filled for you to send.');
+        // Mobile menu functionality
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
         });
+        
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+        
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!mobileMenuButton.contains(e.target) && !mobileMenu.contains(e.target)) {
+                mobileMenu.classList.add('hidden');
+            }
+        });
+
+        // Form submission - Opens Gmail with pre-filled content
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            const name = document.getElementById('userName').value.trim();
+            const email = document.getElementById('userEmail').value.trim();
+            const message = document.getElementById('userMessage').value.trim();
+            
+            // Validate required fields
+            if (!name || !email || !message) {
+                showNotification('Please fill in all fields before sending!', 'error');
+                return false;
+            }
+            
+            // Validate email format
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                showNotification('Please enter a valid email address!', 'error');
+                return false;
+            }
+            
+            // Show loading state
+            const submitButton = this.querySelector('button[type="submit"]');
+            const originalText = submitButton.innerHTML;
+            submitButton.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Opening Gmail...';
+            submitButton.disabled = true;
+            
+            // Create email content with proper formatting
+            const subject = 'Portfolio Contact: ' + name + ' wants to connect!';
+            const emailBody = 'Hello Taranpreet!\n\n' +
+                'Someone reached out through your portfolio website!\n\n' +
+                'FROM: ' + name + '\n' +
+                'EMAIL: ' + email + '\n\n' +
+                'MESSAGE:\n' + message + '\n\n' +
+                '---\n' +
+                'This message was sent through your portfolio contact form.\n\n' +
+                'Best regards,\n' + name;
+            
+            // Try Gmail first with better error handling
+            setTimeout(() => {
+                try {
+                    const gmailUrl = 'https://mail.google.com/mail/?view=cm&fs=1&to=taranpreetbatra1@gmail.com&su=' + 
+                        encodeURIComponent(subject) + '&body=' + encodeURIComponent(emailBody);
+                    
+                    const newWindow = window.open(gmailUrl, '_blank', 'noopener,noreferrer,width=800,height=600');
+                    
+                    if (newWindow && !newWindow.closed) {
+                        showNotification('Gmail opened! Your message is ready to send 📧', 'success');
+                    } else {
+                        // Fallback to mailto without changing location
+                        const mailtoUrl = 'mailto:taranpreetbatra1@gmail.com?subject=' + 
+                            encodeURIComponent(subject) + '&body=' + encodeURIComponent(emailBody);
+                        
+                        const link = document.createElement('a');
+                        link.href = mailtoUrl;
+                        link.style.display = 'none';
+                        link.target = '_blank';
+                        document.body.appendChild(link);
+                        link.click();
+                        document.body.removeChild(link);
+                        
+                        showNotification('Opening your email app...', 'info');
+                    }
+                } catch (error) {
+                    console.error('Email opening failed:', error);
+                    showNotification('Please copy this email: taranpreetbatra1@gmail.com', 'info');
+                }
+                
+                // Reset button state
+                submitButton.innerHTML = originalText;
+                submitButton.disabled = false;
+                
+                // Clear form after successful submission
+                document.getElementById('contactForm').reset();
+                showNotification('Form cleared! Ready for your next message ✨', 'info');
+            }, 100);
+            
+            // Ensure no page reload
+            return false;
+        });
+        
+        // Dynamic notification system
+        function showNotification(message, type = 'info') {
+            // Remove existing notifications
+            const existingNotifications = document.querySelectorAll('.notification');
+            existingNotifications.forEach(notification => notification.remove());
+            
+            // Create notification element
+            const notification = document.createElement('div');
+            notification.className = `notification fixed top-4 right-4 z-50 px-6 py-4 rounded-lg shadow-lg transform translate-x-full transition-all duration-300 max-w-sm`;
+            
+            // Set notification style based on type
+            if (type === 'success') {
+                notification.classList.add('bg-green-500', 'text-white');
+                notification.innerHTML = `<i class="fas fa-check-circle mr-2"></i>${message}`;
+            } else if (type === 'error') {
+                notification.classList.add('bg-red-500', 'text-white');
+                notification.innerHTML = `<i class="fas fa-exclamation-circle mr-2"></i>${message}`;
+            } else {
+                notification.classList.add('bg-blue-500', 'text-white');
+                notification.innerHTML = `<i class="fas fa-info-circle mr-2"></i>${message}`;
+            }
+            
+            // Add close button
+            const closeBtn = document.createElement('button');
+            closeBtn.innerHTML = '<i class="fas fa-times ml-2"></i>';
+            closeBtn.className = 'ml-2 hover:opacity-75';
+            closeBtn.onclick = () => hideNotification(notification);
+            notification.appendChild(closeBtn);
+            
+            // Add to page
+            document.body.appendChild(notification);
+            
+            // Animate in
+            setTimeout(() => {
+                notification.classList.remove('translate-x-full');
+            }, 100);
+            
+            // Auto hide after 5 seconds
+            setTimeout(() => {
+                hideNotification(notification);
+            }, 5000);
+        }
+        
+        function hideNotification(notification) {
+            notification.classList.add('translate-x-full');
+            setTimeout(() => {
+                if (notification.parentNode) {
+                    notification.parentNode.removeChild(notification);
+                }
+            }, 300);
+        }
+        
+        // Real-time form validation
+        const formInputs = document.querySelectorAll('#contactForm input, #contactForm textarea');
+        formInputs.forEach(input => {
+            input.addEventListener('blur', validateField);
+            input.addEventListener('input', clearFieldError);
+        });
+        
+        function validateField(e) {
+            const field = e.target;
+            const value = field.value.trim();
+            
+            // Remove existing error styling
+            field.classList.remove('border-red-500', 'border-green-500');
+            
+            if (field.type === 'email' && value) {
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (emailRegex.test(value)) {
+                    field.classList.add('border-green-500');
+                } else {
+                    field.classList.add('border-red-500');
+                }
+            } else if (value) {
+                field.classList.add('border-green-500');
+            }
+        }
+        
+        function clearFieldError(e) {
+            const field = e.target;
+            field.classList.remove('border-red-500');
+        }
+        
+        // Dynamic character counter for textarea
+        const messageTextarea = document.getElementById('userMessage');
+        const charCounter = document.createElement('div');
+        charCounter.className = 'text-sm text-gray-500 mt-1 text-right';
+        charCounter.textContent = '0/500 characters';
+        messageTextarea.parentNode.appendChild(charCounter);
+        
+        messageTextarea.addEventListener('input', (e) => {
+            const length = e.target.value.length;
+            const maxLength = 500;
+            charCounter.textContent = `${length}/${maxLength} characters`;
+            
+            if (length > maxLength * 0.9) {
+                charCounter.classList.add('text-orange-500');
+            } else {
+                charCounter.classList.remove('text-orange-500');
+            }
+            
+            if (length >= maxLength) {
+                charCounter.classList.add('text-red-500');
+                e.target.value = e.target.value.substring(0, maxLength);
+            } else {
+                charCounter.classList.remove('text-red-500');
+            }
+        });
+
+document.getElementById('contactForm').addEventListener('submit', (e) => {
+e.preventDefault();
+const name = document.getElementById('userName').value;
+const email = document.getElementById('userEmail').value;
+const message = document.getElementById('userMessage').value;
+
+
+const subject = `Portfolio Contact from ${name || 'Website Visitor'}`;
+const body = `Hi Taranpreet,\n\n${message || 'No message provided'}\n\nBest regards,\n${name || 'Anonymous'}\n${email ? `Email: ${email}` : ''}`;
+
+
+const mailtoLink = `mailto:taranpreetbatra1@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+window.location.href = mailtoLink;
+alert('Opening your email client! The message will be pre-filled for you to send.');
+});
     </script>
 </body>
 </html>

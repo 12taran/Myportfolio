@@ -650,42 +650,65 @@
                 padding-right: 1rem;
             }
             
-            /* Optimize animations for mobile */
+            /* Remove complex animations and effects on mobile */
             .code-float, .particle {
-                display: none;
+                display: none !important;
             }
             
-            .card-3d:hover {
-                transform: translateY(-5px);
+            /* Simplify animations on mobile - keep basic ones */
+            .float, .float-delayed, .float-slow, .float-fast,
+            .spin-slow, .spin-reverse, .spin-wobble,
+            .bounce-slow, .wiggle, .zoom-pulse,
+            .morph-1, .morph-2, .pulse-rainbow,
+            .glow-blue, .glow-purple, .glow-rainbow,
+            .text-glow, .particle-burst,
+            .pulse-glow, .pulse-glow-slow, .neon-blue,
+            .neon-purple, .neon-pink, .flip-horizontal,
+            .flip-vertical, .loading-dots, .loading-pulse,
+            .click-effect {
+                animation: none !important;
+                transform: none !important;
             }
             
-            /* Ensure text is readable on small screens */
-            body {
-                font-size: 16px;
-                line-height: 1.6;
+            /* Keep basic entrance animations but simplified */
+            .bounce-in, .zoom-in, .slide-in-left, .slide-in-right,
+            .slide-in-top, .slide-in-bottom, .fade-in,
+            .fade-in-left, .fade-in-right, .scale-in,
+            .slide-up, .rotate-in {
+                animation-duration: 0.3s !important;
+                animation-delay: 0s !important;
+            }
+            
+            /* Simplify hover effects on mobile */
+            .hover-lift:hover, .card-3d:hover, .hover-grow:hover, 
+            .hover-rotate:hover, .hover-skew:hover, .hover-flip:hover, 
+            .hover-shrink:hover {
+                transform: none !important;
+                box-shadow: none !important;
+            }
+            
+            /* Remove complex visual effects */
+            .pulse-rainbow, .text-glow, .text-rainbow {
+                box-shadow: none !important;
+                text-shadow: none !important;
+                background: none !important;
+                -webkit-background-clip: unset !important;
+                -webkit-text-fill-color: unset !important;
+                background-clip: unset !important;
+            }
+            
+            /* Simplify glassmorphism effects */
+            .glass, .glass-dark, .glass-card {
+                backdrop-filter: blur(5px) !important;
+                -webkit-backdrop-filter: blur(5px) !important;
+                background: rgba(255, 255, 255, 0.95) !important;
+                border: 1px solid rgba(0, 0, 0, 0.1) !important;
             }
             
             /* Better spacing for mobile */
             section {
                 padding-top: 2rem;
                 padding-bottom: 2rem;
-            }
-            
-            /* Mobile navigation improvements */
-            #mobile-menu {
-                max-height: calc(100vh - 4rem);
-                overflow-y: auto;
-            }
-            
-            /* Prevent horizontal scroll */
-            .overflow-x-hidden {
-                overflow-x: hidden;
-            }
-            
-            /* Mobile glassmorphism adjustments */
-            .glass, .glass-dark {
-                backdrop-filter: blur(10px);
-                -webkit-backdrop-filter: blur(10px);
             }
             
             /* Hero section mobile optimization */
@@ -711,6 +734,17 @@
                 font-size: 0.875rem;
             }
             
+            .hero-buttons button:first-child {
+                background: linear-gradient(135deg, #3b82f6, #8b5cf6) !important;
+                color: white !important;
+            }
+            
+            .hero-buttons button:last-child {
+                background: rgba(255, 255, 255, 0.15) !important;
+                color: white !important;
+                border: 2px solid rgba(255, 255, 255, 0.3) !important;
+            }
+            
             .hero-stats {
                 margin-top: 2rem;
                 gap: 0.75rem;
@@ -725,10 +759,6 @@
             }
             
             /* About section mobile */
-            .skill-icon {
-                margin-bottom: 1rem;
-            }
-            
             .skill-icon div {
                 width: 3rem;
                 height: 3rem;
@@ -757,11 +787,6 @@
             .project-card p {
                 font-size: 0.875rem;
                 margin-bottom: 1rem;
-            }
-            
-            .project-card .flex {
-                flex-wrap: wrap;
-                gap: 0.5rem;
             }
             
             .project-card span {
@@ -821,10 +846,6 @@
             }
             
             /* Blog cards mobile */
-            .blog-card {
-                margin-bottom: 1.5rem;
-            }
-            
             .blog-card .h-48 {
                 height: 8rem;
             }
@@ -929,6 +950,37 @@
             .contact-form textarea {
                 padding: 0.75rem;
                 font-size: 0.875rem;
+                animation: none !important;
+                transform: none !important;
+                transition: none !important;
+            }
+            
+            .contact-form input:hover,
+            .contact-form textarea:hover,
+            .contact-form input:focus,
+            .contact-form textarea:focus {
+                transform: none !important;
+                box-shadow: none !important;
+            }
+            
+            .contact-form button {
+                animation: none !important;
+                transform: none !important;
+                transition: none !important;
+                background: linear-gradient(135deg, #3b82f6, #8b5cf6) !important;
+                color: white !important;
+            }
+            
+            .contact-form button:hover {
+                transform: none !important;
+                box-shadow: none !important;
+                background: linear-gradient(135deg, #2563eb, #7c3aed) !important;
+                color: white !important;
+            }
+            
+            .contact-form .group {
+                animation: none !important;
+                transform: none !important;
             }
             
             /* Stats grid for very small screens */
@@ -952,20 +1004,22 @@
         
         /* Touch-friendly interactions */
         @media (hover: none) and (pointer: coarse) {
-            .hover-lift:hover {
-                transform: none;
+            /* Disable ALL animations and transforms on touch devices */
+            * {
+                animation: none !important;
+                transform: none !important;
+                transition: none !important;
             }
             
+            .hover-lift:hover,
             .hover-lift:active {
-                transform: translateY(-2px);
+                transform: none !important;
             }
             
-            .btn-navy:hover {
-                transform: none;
-            }
-            
+            .btn-navy:hover,
             .btn-navy:active {
-                transform: translateY(-1px);
+                transform: none !important;
+                box-shadow: none !important;
             }
             
             /* Larger touch targets for mobile */
@@ -1252,119 +1306,219 @@
 
     <!-- Hero Section -->
     <section class="min-h-screen bg-gradient-to-br from-slate-900 via-navy to-indigo-900 text-white flex items-center justify-center relative overflow-hidden pt-0 md:pt-18 transform-3d">
-        <!-- Animated Grid Background -->
-        <div class="absolute inset-0 opacity-10">
-            <div class="grid-background"></div>
+        <!-- Advanced Animated Background -->
+        <div class="absolute inset-0">
+            <!-- Geometric Pattern Overlay -->
+            <div class="absolute inset-0 opacity-5">
+                <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <pattern id="hexagons" x="0" y="0" width="100" height="87" patternUnits="userSpaceOnUse">
+                            <polygon points="50,1 95,25 95,75 50,99 5,75 5,25" fill="none" stroke="currentColor" stroke-width="1"/>
+                        </pattern>
+                    </defs>
+                    <rect width="100%" height="100%" fill="url(#hexagons)"/>
+                </svg>
+            </div>
+            
+            <!-- Dynamic Grid Background -->
+            <div class="absolute inset-0 opacity-10">
+                <div class="grid-background"></div>
+            </div>
+            
+            <!-- Gradient Orbs -->
+            <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-full blur-3xl animate-pulse"></div>
+            <div class="absolute bottom-1/4 right-1/4 w-80 h-80 bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-full blur-3xl animate-pulse" style="animation-delay: 2s;"></div>
+            <div class="absolute top-1/2 right-1/3 w-64 h-64 bg-gradient-to-r from-cyan-500/20 to-blue-500/20 rounded-full blur-3xl animate-pulse" style="animation-delay: 4s;"></div>
         </div>
         
-        <!-- Floating Code Elements -->
-        <div class="absolute inset-0 opacity-20 hidden sm:block">
-            <div class="code-float code-1">kubectl apply -f</div>
-            <div class="code-float code-2">docker build .</div>
-            <div class="code-float code-3">terraform init</div>
-            <div class="code-float code-4">helm install</div>
-            <div class="code-float code-5">aws eks</div>
-            <div class="code-float code-6">CI/CD</div>
+        <!-- Professional Floating Code Elements -->
+        <div class="absolute inset-0 opacity-15 hidden lg:block">
+            <div class="code-float code-1 text-blue-300">apiVersion: apps/v1</div>
+            <div class="code-float code-2 text-green-300">FROM node:alpine</div>
+            <div class="code-float code-3 text-purple-300">resource "aws_eks_cluster"</div>
+            <div class="code-float code-4 text-orange-300">helm upgrade --install</div>
+            <div class="code-float code-5 text-cyan-300">kubectl get pods</div>
+            <div class="code-float code-6 text-pink-300">pipeline { stages { } }</div>
+            <div class="code-float" style="top: 15%; right: 20%; animation-delay: -18s; color: #fbbf24;">monitoring: prometheus</div>
+            <div class="code-float" style="top: 85%; left: 15%; animation-delay: -21s; color: #34d399;">security: trivy scan</div>
         </div>
         
-        <!-- Particle System -->
+        <!-- Enhanced Particle System -->
         <div class="absolute inset-0 hidden md:block">
             <div class="particles">
-                <div class="particle particle-1"></div>
-                <div class="particle particle-2"></div>
-                <div class="particle particle-3"></div>
-                <div class="particle particle-4"></div>
-                <div class="particle particle-5"></div>
-                <div class="particle particle-6"></div>
-                <div class="particle particle-7"></div>
-                <div class="particle particle-8"></div>
+                <div class="particle particle-1 bg-blue-400"></div>
+                <div class="particle particle-2 bg-purple-400"></div>
+                <div class="particle particle-3 bg-green-400"></div>
+                <div class="particle particle-4 bg-orange-400"></div>
+                <div class="particle particle-5 bg-pink-400"></div>
+                <div class="particle particle-6 bg-cyan-400"></div>
+                <div class="particle particle-7 bg-yellow-400"></div>
+                <div class="particle particle-8 bg-red-400"></div>
+                <!-- Additional particles for richness -->
+                <div class="particle bg-indigo-400" style="top: 25%; left: 15%; animation-delay: -8s;"></div>
+                <div class="particle bg-teal-400" style="top: 75%; right: 25%; animation-delay: -10s;"></div>
+                <div class="particle bg-rose-400" style="top: 45%; left: 5%; animation-delay: -12s;"></div>
+                <div class="particle bg-violet-400" style="top: 65%; right: 15%; animation-delay: -14s;"></div>
             </div>
         </div>
         
-        <!-- Main Content -->
-        <div class="text-center px-4 sm:px-6 lg:px-8 relative z-20 w-full max-w-6xl mx-auto">
+        <!-- Main Content Container -->
+        <div class="text-center px-4 sm:px-6 lg:px-8 relative z-20 w-full max-w-7xl mx-auto">
             
-            <!-- Greeting -->
-            <div class="hero-greeting mb-6 sm:mb-8">
-                <span class="inline-block px-6 py-3 glass rounded-full text-base sm:text-lg text-blue-200 font-medium pulse-rainbow float-slow morph-1">
-                    <i class="fas fa-hand-wave mr-2 wiggle"></i>Hello, I am
-                </span>
+
+            
+            <!-- Professional Greeting -->
+            <div class="hero-greeting mb-6 sm:mb-8 hidden sm:block">
+                <div class="inline-flex items-center gap-3 px-6 py-3 glass rounded-full text-base sm:text-lg text-blue-200 font-medium backdrop-blur-xl border border-white/20">
+                    <div class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+                    <span>Hello, I'm</span>
+                    <i class="fas fa-hand-wave text-yellow-400 animate-bounce"></i>
+                </div>
             </div>
             
-            <!-- Name with Dynamic Effects -->
-            <h1 class="hero-title mb-6 sm:mb-8">
-                <span class="block text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-rainbow leading-tight bounce-in">
-                    Taranpreet Singh
-                </span>
-                <span class="block text-xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-glow mt-2 sm:mt-4 zoom-in stagger-2">
-                    Batra
-                </span>
+            <!-- Enhanced Name with Professional Typography -->
+            <h1 class="hero-title mb-8 sm:mb-10">
+                <div class="space-y-2 sm:space-y-4">
+                    <div class="text-4xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black leading-none">
+                        <span class="bg-gradient-to-r from-white via-blue-200 to-purple-200 bg-clip-text text-transparent">
+                            Taranpreet Singh
+                        </span>
+                    </div>
+                    <div class="text-2xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold">
+                        <span class="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+                            Batra
+                        </span>
+                    </div>
+                </div>
             </h1>
             
-            <!-- Dynamic Role with Typewriter Effect -->
-            <div class="hero-role mb-8 sm:mb-10">
-                <div class="text-lg sm:text-2xl md:text-3xl lg:text-4xl font-semibold text-gray-200 min-h-[2em] flex items-center justify-center">
-                    <span class="typewriter-text">DevOps Engineer</span>
-                    <span class="typewriter-cursor">|</span>
+            <!-- Professional Role Section -->
+            <div class="hero-role mb-10 sm:mb-12">
+                <div class="flex flex-col items-center gap-4">
+                    <!-- Main Role -->
+                    <div class="text-xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-center">
+                        <span class="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent typewriter-text">
+                            DevOps Engineer
+                        </span>
+                        <span class="typewriter-cursor text-blue-400">|</span>
+                    </div>
+                    
+                    <!-- Professional Specializations -->
+                    <div class="flex flex-wrap justify-center gap-3 sm:gap-4 max-w-4xl">
+                        <span class="px-4 py-2 bg-gradient-to-r from-blue-500/20 to-cyan-500/20 backdrop-blur-sm border border-blue-400/30 rounded-full text-sm sm:text-base text-blue-300 font-medium">
+                            Cloud Architecture
+                        </span>
+                        <span class="px-4 py-2 bg-gradient-to-r from-purple-500/20 to-pink-500/20 backdrop-blur-sm border border-purple-400/30 rounded-full text-sm sm:text-base text-purple-300 font-medium">
+                            Kubernetes Expert
+                        </span>
+                        <span class="px-4 py-2 bg-gradient-to-r from-orange-500/20 to-red-500/20 backdrop-blur-sm border border-orange-400/30 rounded-full text-sm sm:text-base text-orange-300 font-medium">
+                            AWS Specialist
+                        </span>
+                        <span class="px-4 py-2 bg-gradient-to-r from-green-500/20 to-emerald-500/20 backdrop-blur-sm border border-green-400/30 rounded-full text-sm sm:text-base text-green-300 font-medium">
+                            CI/CD Automation
+                        </span>
+                    </div>
                 </div>
             </div>
             
-            <!-- Description -->
-            <p class="hero-description text-sm sm:text-lg md:text-xl lg:text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed mb-10 sm:mb-12 px-2">
-                Transforming ideas into scalable cloud solutions with 
-                <span class="text-blue-400 font-semibold">Kubernetes</span>, 
-                <span class="text-orange-400 font-semibold">AWS</span>, and 
-                <span class="text-purple-400 font-semibold">DevOps automation</span>
-            </p>
+            <!-- Professional Description -->
+            <div class="hero-description mb-12 sm:mb-16">
+                <p class="text-lg sm:text-xl md:text-2xl lg:text-3xl text-gray-300 max-w-5xl mx-auto leading-relaxed font-light">
+                    Architecting scalable cloud infrastructure and automating deployment pipelines to deliver 
+                    <span class="text-transparent bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text font-semibold">reliable</span>, 
+                    <span class="text-transparent bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text font-semibold">secure</span>, and 
+                    <span class="text-transparent bg-gradient-to-r from-green-400 to-emerald-400 bg-clip-text font-semibold">high-performance</span> 
+                    solutions
+                </p>
+            </div>
             
-            <!-- CTA Buttons -->
-            <div class="hero-buttons flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center max-w-lg mx-auto px-4">
-                <button class="group relative overflow-hidden gradient-bg-1 hover:gradient-bg-2 text-white font-bold py-4 px-6 sm:px-8 rounded-2xl transition-all duration-500 transform hover:scale-110 glow-rainbow hover:glow-purple min-h-[56px] touch-manipulation float-delayed text-sm sm:text-base click-effect hover-grow particle-burst">
-                    <span class="relative z-10 flex items-center justify-center gap-2 font-semibold">
-                        <i class="fas fa-rocket spin-wobble"></i>
-                        View My Work
+            <!-- Professional CTA Buttons -->
+            <div class="hero-buttons flex flex-col sm:flex-row gap-6 justify-center max-w-2xl mx-auto px-4 mb-16 sm:mb-20">
+                <button class="group relative overflow-hidden bg-gradient-to-r from-blue-600 via-purple-600 to-blue-700 hover:from-blue-700 hover:via-purple-700 hover:to-blue-800 text-white font-bold py-5 px-8 sm:px-10 rounded-2xl transition-all duration-500 transform hover:scale-105 shadow-2xl hover:shadow-blue-500/25 min-h-[64px] touch-manipulation">
+                    <div class="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <span class="relative z-10 flex items-center justify-center gap-3 text-lg font-semibold">
+                        <i class="fas fa-code text-xl group-hover:rotate-12 transition-transform duration-300"></i>
+                        <span>Explore My Work</span>
+                        <i class="fas fa-arrow-right group-hover:translate-x-1 transition-transform duration-300"></i>
                     </span>
-                    <div class="absolute inset-0 gradient-bg-2 opacity-0 group-hover:opacity-100 transition-all duration-500 rounded-2xl"></div>
                 </button>
                 
-                <button class="group relative overflow-hidden glass border-2 border-white/40 hover:border-white text-white font-bold py-4 px-6 sm:px-8 rounded-2xl transition-all duration-500 transform hover:scale-110 hover:glow-blue min-h-[56px] touch-manipulation float-fast text-sm sm:text-base click-effect hover-rotate morph-2">
-                    <span class="flex items-center justify-center gap-2 font-semibold">
-                        <i class="fas fa-paper-plane bounce-slow"></i>
-                        Let's Connect
+                <button class="group relative overflow-hidden backdrop-blur-xl bg-white/10 border-2 border-white/30 hover:border-white/50 text-white font-bold py-5 px-8 sm:px-10 rounded-2xl transition-all duration-500 transform hover:scale-105 shadow-2xl hover:shadow-white/10 min-h-[64px] touch-manipulation">
+                    <div class="absolute inset-0 bg-gradient-to-r from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <span class="relative z-10 flex items-center justify-center gap-3 text-lg font-semibold">
+                        <i class="fas fa-handshake text-xl group-hover:scale-110 transition-transform duration-300"></i>
+                        <span>Let's Collaborate</span>
+                        <i class="fas fa-external-link-alt text-sm group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300"></i>
                     </span>
-                    <div class="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-all duration-500 rounded-2xl"></div>
                 </button>
             </div>
             
-            <!-- Stats/Highlights -->
-            <div class="hero-stats mt-16 sm:mt-20 grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-6 max-w-4xl mx-auto px-4">
-                <div class="stat-item text-center p-4 sm:p-6 rounded-2xl glass hover:glass-card transition-all duration-500 hover:scale-105 card-3d float-slow glow-blue hover-grow stagger-1">
-                    <div class="text-xl sm:text-3xl md:text-4xl font-bold text-blue-400 mb-2 font-mono zoom-pulse">5+</div>
-                    <div class="text-xs sm:text-sm text-gray-300 font-medium">Projects</div>
+            <!-- Professional Stats Grid -->
+            <div class="hero-stats grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 max-w-5xl mx-auto px-4">
+                <div class="stat-item group text-center p-6 sm:p-8 rounded-3xl backdrop-blur-xl bg-gradient-to-br from-white/10 to-white/5 border border-white/20 hover:border-white/40 transition-all duration-500 hover:scale-105 shadow-xl hover:shadow-2xl">
+                    <div class="text-3xl sm:text-4xl lg:text-5xl font-black text-transparent bg-gradient-to-br from-blue-400 to-cyan-400 bg-clip-text mb-3 font-mono group-hover:scale-110 transition-transform duration-300">
+                        5+
+                    </div>
+                    <div class="text-sm sm:text-base text-gray-300 font-semibold uppercase tracking-wider">
+                        Projects Delivered
+                    </div>
+                    <div class="w-12 h-1 bg-gradient-to-r from-blue-400 to-cyan-400 rounded-full mx-auto mt-3 group-hover:w-16 transition-all duration-300"></div>
                 </div>
-                <div class="stat-item text-center p-4 sm:p-6 rounded-2xl glass hover:glass-card transition-all duration-500 hover:scale-105 card-3d float-delayed glow-purple hover-rotate stagger-2">
-                    <div class="text-xl sm:text-3xl md:text-4xl font-bold text-purple-400 mb-2 font-mono spin-slow">1.5+</div>
-                    <div class="text-xs sm:text-sm text-gray-300 font-medium">Years Exp</div>
+                
+                <div class="stat-item group text-center p-6 sm:p-8 rounded-3xl backdrop-blur-xl bg-gradient-to-br from-white/10 to-white/5 border border-white/20 hover:border-white/40 transition-all duration-500 hover:scale-105 shadow-xl hover:shadow-2xl">
+                    <div class="text-3xl sm:text-4xl lg:text-5xl font-black text-transparent bg-gradient-to-br from-purple-400 to-pink-400 bg-clip-text mb-3 font-mono group-hover:scale-110 transition-transform duration-300">
+                        1.5+
+                    </div>
+                    <div class="text-sm sm:text-base text-gray-300 font-semibold uppercase tracking-wider">
+                        Years Experience
+                    </div>
+                    <div class="w-12 h-1 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full mx-auto mt-3 group-hover:w-16 transition-all duration-300"></div>
                 </div>
-                <div class="stat-item text-center p-4 sm:p-6 rounded-2xl glass hover:glass-card transition-all duration-500 hover:scale-105 card-3d float-fast hover-skew stagger-3">
-                    <div class="text-xl sm:text-3xl md:text-4xl font-bold text-orange-400 mb-2 font-mono bounce-slow">10+</div>
-                    <div class="text-xs sm:text-sm text-gray-300 font-medium">Technologies</div>
+                
+                <div class="stat-item group text-center p-6 sm:p-8 rounded-3xl backdrop-blur-xl bg-gradient-to-br from-white/10 to-white/5 border border-white/20 hover:border-white/40 transition-all duration-500 hover:scale-105 shadow-xl hover:shadow-2xl">
+                    <div class="text-3xl sm:text-4xl lg:text-5xl font-black text-transparent bg-gradient-to-br from-orange-400 to-red-400 bg-clip-text mb-3 font-mono group-hover:scale-110 transition-transform duration-300">
+                        10+
+                    </div>
+                    <div class="text-sm sm:text-base text-gray-300 font-semibold uppercase tracking-wider">
+                        Technologies
+                    </div>
+                    <div class="w-12 h-1 bg-gradient-to-r from-orange-400 to-red-400 rounded-full mx-auto mt-3 group-hover:w-16 transition-all duration-300"></div>
                 </div>
-                <div class="stat-item text-center p-4 sm:p-6 rounded-2xl glass hover:glass-card transition-all duration-500 hover:scale-105 card-3d float-delayed pulse-rainbow hover-flip stagger-4">
-                    <div class="text-xl sm:text-3xl md:text-4xl font-bold text-green-400 mb-2 font-mono wiggle">24/7</div>
-                    <div class="text-xs sm:text-sm text-gray-300 font-medium">Uptime Focus</div>
+                
+                <div class="stat-item group text-center p-6 sm:p-8 rounded-3xl backdrop-blur-xl bg-gradient-to-br from-white/10 to-white/5 border border-white/20 hover:border-white/40 transition-all duration-500 hover:scale-105 shadow-xl hover:shadow-2xl">
+                    <div class="text-3xl sm:text-4xl lg:text-5xl font-black text-transparent bg-gradient-to-br from-green-400 to-emerald-400 bg-clip-text mb-3 font-mono group-hover:scale-110 transition-transform duration-300">
+                        99.9%
+                    </div>
+                    <div class="text-sm sm:text-base text-gray-300 font-semibold uppercase tracking-wider">
+                        Uptime Target
+                    </div>
+                    <div class="w-12 h-1 bg-gradient-to-r from-green-400 to-emerald-400 rounded-full mx-auto mt-3 group-hover:w-16 transition-all duration-300"></div>
                 </div>
             </div>
         </div>
         
-        <!-- Scroll Indicator -->
+        <!-- Professional Scroll Indicator -->
         <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 hidden sm:block">
-            <div class="scroll-indicator">
-                <div class="scroll-mouse">
-                    <div class="scroll-wheel"></div>
+            <div class="scroll-indicator flex flex-col items-center gap-3">
+                <div class="scroll-mouse backdrop-blur-sm bg-white/10 border border-white/30 shadow-lg">
+                    <div class="scroll-wheel bg-gradient-to-b from-blue-400 to-purple-400"></div>
                 </div>
-                <div class="text-xs text-gray-400 mt-2">Scroll Down</div>
+                <div class="text-xs text-gray-400 font-medium uppercase tracking-wider">Scroll to Explore</div>
             </div>
+        </div>
+        
+        <!-- Professional Corner Decorations -->
+        <div class="absolute top-8 left-8 hidden xl:block">
+            <div class="w-16 h-16 border-l-2 border-t-2 border-white/20 rounded-tl-lg"></div>
+        </div>
+        <div class="absolute top-8 right-8 hidden xl:block">
+            <div class="w-16 h-16 border-r-2 border-t-2 border-white/20 rounded-tr-lg"></div>
+        </div>
+        <div class="absolute bottom-8 left-8 hidden xl:block">
+            <div class="w-16 h-16 border-l-2 border-b-2 border-white/20 rounded-bl-lg"></div>
+        </div>
+        <div class="absolute bottom-8 right-8 hidden xl:block">
+            <div class="w-16 h-16 border-r-2 border-b-2 border-white/20 rounded-br-lg"></div>
         </div>
     </section>
 
@@ -2091,11 +2245,12 @@
         setTimeout(typewriterEffect, 2000);
 
         // Hero buttons functionality
-        document.querySelectorAll('button').forEach(button => {
+        document.querySelectorAll('.hero-buttons button').forEach(button => {
             button.addEventListener('click', (e) => {
-                if (e.target.textContent.includes('View My Work') || e.target.closest('button').textContent.includes('View My Work')) {
+                const buttonText = button.textContent;
+                if (buttonText.includes('Explore My Work')) {
                     document.querySelector('#projects').scrollIntoView({ behavior: 'smooth' });
-                } else if (e.target.textContent.includes('Let\'s Connect') || e.target.closest('button').textContent.includes('Let\'s Connect')) {
+                } else if (buttonText.includes('Let\'s Collaborate')) {
                     document.querySelector('#contact').scrollIntoView({ behavior: 'smooth' });
                 }
             });
@@ -2405,5 +2560,5 @@ ${body}`;
 
 
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'972983f0d17c59ff',t:'MTc1NTc3Mjg1OS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'97308fab737c59bd',t:'MTc1NTg0Njc0MC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
